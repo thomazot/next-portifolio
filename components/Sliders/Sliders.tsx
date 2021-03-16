@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import Scrollbar from 'smooth-scrollbar'
 
 import * as CSS from './Sliders.style'
 import Slide from './components/Slide'
@@ -16,18 +15,18 @@ const Sliders: React.FC<Props> = ({ children }) => {
   const refSliders = useRef()
 
   useEffect(() => {
-    const bodyScrollBar = Scrollbar.init(refSliders.current)
-
-    ScrollTrigger.scrollerProxy('body', {
-      scrollTop(value) {
-        if (arguments.length) {
-          bodyScrollBar.scrollTop = value
-        }
-        return bodyScrollBar.scrollTop
-      }
+    gsap.utils.toArray('.slide').forEach(panel => {
+      ScrollTrigger.create({
+        trigger: panel,
+        start: 'top top',
+        pin: true,
+        pinSpacing: false
+      })
     })
 
-    bodyScrollBar.addListener(ScrollTrigger.update)
+    ScrollTrigger.create({
+      snap: 1 / 2
+    })
   }, [])
 
   return (

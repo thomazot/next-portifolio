@@ -18,4 +18,21 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     font: 400 16px Roboto, sans-serif;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.text};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.background};
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.background};
+  }
 `

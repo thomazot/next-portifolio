@@ -11,7 +11,6 @@ const Home: React.FC = () => {
       </Head>
       <Layout>
         <Logo />
-        <Logo />
       </Layout>
     </>
   )
