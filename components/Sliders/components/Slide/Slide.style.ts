@@ -6,8 +6,7 @@ export const Slide = styled.section`
   align-items: center;
   background: ${({ theme }) => theme.colors.background};
   position: relative;
-  height: 100vh;
-  max-height: 100%;
+  height: 100%;
 `
 
 export const Next = styled.span`
