@@ -34,7 +34,7 @@ const Logo = () => {
   return (
     <CSS.H1>
       <span>Hi, I'm </span>
-      <span ref={textRef}></span>
+      <span className="description" ref={textRef}></span>
       <span ref={cursorRef}>_</span>
     </CSS.H1>
   )
