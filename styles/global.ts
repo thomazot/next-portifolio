@@ -10,13 +10,19 @@ export default createGlobalStyle`
 
   body, html, #__next {
     width: 100%;
-    height: 100%;
   }
 
   body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font: 400 16px Roboto, sans-serif;
+  }
+
+  html, #__next {
+    height: -webkit-fill-available;
   }
 
   ::-webkit-scrollbar {
