@@ -20,7 +20,7 @@ const Sliders: React.FC<Props> = ({ children }) => {
         trigger: panel,
         start: 'top top',
         pin: true,
-        pinSpacing: true
+        pinSpacing: false
       })
     })
 
