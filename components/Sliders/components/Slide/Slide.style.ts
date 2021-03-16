@@ -19,4 +19,8 @@ export const Next = styled.span`
     width: 26px;
     height: 26px;
   }
+
+  @media (max-width: 500px) {
+    bottom: 20vh;
+  }
 `
