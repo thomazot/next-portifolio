@@ -15,7 +15,7 @@ const Sliders: React.FC<Props> = ({ children }) => {
   const refSliders = useRef()
 
   useEffect(() => {
-    gsap.utils.toArray('.slide').forEach(panel => {
+    gsap.utils.toArray('.slide').forEach((panel: HTMLElement) => {
       ScrollTrigger.create({
         trigger: panel,
         start: 'top top',
