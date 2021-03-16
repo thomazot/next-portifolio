@@ -12,7 +12,7 @@ export const Slide = styled.section`
 
 export const Next = styled.span`
   position: absolute;
-  bottom: 20px;
+  bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
 

@@ -14,7 +14,6 @@ export const List = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px;
 `
 
 export const Link = styled.a`
@@ -26,6 +25,7 @@ export const Link = styled.a`
   color: ${({ theme }) => theme.colors.background};
   border-radius: 4px;
   border: solid 2px ${({ theme }) => theme.colors.background};
+  margin: 16px;
 
   svg {
     width: 40px;
