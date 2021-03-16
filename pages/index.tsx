@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import Logo from '../components/Logo'
+import Socials from '../components/Socials'
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
       </Head>
       <Layout>
         <Logo />
+        <Socials />
       </Layout>
     </>
   )

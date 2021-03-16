@@ -30,9 +30,4 @@ export default createGlobalStyle`
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.background};
   }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.background};
-  }
 `

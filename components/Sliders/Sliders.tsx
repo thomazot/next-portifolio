@@ -20,19 +20,21 @@ const Sliders: React.FC<Props> = ({ children }) => {
         trigger: panel,
         start: 'top top',
         pin: true,
-        pinSpacing: false
+        pinSpacing: true
       })
     })
 
     ScrollTrigger.create({
-      snap: 1 / 2
+      snap: 1 / (children.length - 1)
     })
   }, [])
 
   return (
     <CSS.Sliders ref={refSliders}>
       {children.map((child, index) => (
-        <Slide key={index}>{child}</Slide>
+        <Slide next={index < children.length - 1} key={index}>
+          {child}
+        </Slide>
       ))}
     </CSS.Sliders>
   )

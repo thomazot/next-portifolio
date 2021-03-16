@@ -4,7 +4,19 @@ export const Slide = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
   background: ${({ theme }) => theme.colors.background};
+  position: relative;
+  height: 100vh;
+`
+
+export const Next = styled.span`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
 `
