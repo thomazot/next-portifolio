@@ -4,7 +4,8 @@ import { setContext } from '@apollo/client/link/context'
 import {
   ApolloClient,
   InMemoryCache,
-  NormalizedCacheObject
+  NormalizedCacheObject,
+  createHttpLink
 } from '@apollo/client'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
@@ -14,16 +15,6 @@ export type ResolverContext = {
   res?: ServerResponse
 }
 
-const authLink = setContext((_, { headers }) => {
-  const token = process.env.REACT_APP_TOKEN_GITHUB
-  return {
-    headers: {
-      ...headers,
-      Authorization: `Bearer ${token}`
-    }
-  }
-})
-
 function createIsomorphLink(context: ResolverContext = {}) {
   // if (typeof window === 'undefined') {
   //   const { SchemaLink } = require('@apollo/client/link/schema')
@@ -31,17 +22,26 @@ function createIsomorphLink(context: ResolverContext = {}) {
 
   //   return new SchemaLink({ schema, context })
   // } else {
-  const { HttpLink } = require('@apollo/client')
-  return new HttpLink({
+  const authLink = setContext((_, { headers }) => {
+    const token = process.env.REACT_APP_TOKEN_GITHUB
+    return {
+      headers: {
+        ...headers,
+        Authorization: `Bearer ${token}`
+      }
+    }
+  })
+  const httpLink = createHttpLink({
     uri: 'https://api.github.com/graphql'
   })
+  return authLink.concat(httpLink)
   // }
 }
 
 function createApolloClient(context?: ResolverContext) {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: authLink.concat(createIsomorphLink(context)),
+    link: createIsomorphLink(context),
     cache: new InMemoryCache()
   })
 }
