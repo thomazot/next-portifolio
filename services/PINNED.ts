@@ -7,6 +7,15 @@ const PINNED = gql`
         nodes {
           ... on Repository {
             name
+            descriptionHTML
+            shortDescriptionHTML
+            homepageUrl
+            url
+            object(expression: "master:README.md") {
+              ... on Blob {
+                text
+              }
+            }
           }
         }
       }
