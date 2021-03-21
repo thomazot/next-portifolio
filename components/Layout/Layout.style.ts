@@ -14,4 +14,8 @@ export const Container = styled.div`
       padding-left: ${({ theme }) => `${theme.gap}px`};
     }
   }
+  section {
+    overflow: hidden;
+    width: 100%;
+  }
 `
