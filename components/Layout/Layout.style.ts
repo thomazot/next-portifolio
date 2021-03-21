@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  .container {
+  .zot-container {
     width: ${({ theme }) => theme.viewport};
     max-width: calc(100% - ${({ theme }) => `${theme.gap}px`});
     margin: 0 auto;

@@ -24,7 +24,7 @@ const Repository: NextPage = () => {
         <title>thomazot - Repository {name}</title>
       </Head>
       <Layout>
-        <div className="container">
+        <div className="zot-container">
           {data && (
             <>
               <ReactMarkdown>
