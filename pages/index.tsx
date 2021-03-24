@@ -5,14 +5,11 @@ import Logo from '../components/Logo'
 import Socials from '../components/Socials'
 import { NextPage } from 'next'
 import PINNED from '../services/PINNED'
-// import IPinneds from '../typings/IPinneds'
 import Pinneds from '../components/Pinneds'
-import { useQuery } from '@apollo/client'
 import { initializeApollo } from '../services'
+import IPinneds from '../typings/IPinneds'
 
-const Home: NextPage = () => {
-  const { data } = useQuery(PINNED)
-
+const Home: NextPage<IPinneds> = ({ repositories }) => {
   return (
     <>
       <Head>
@@ -20,30 +17,23 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <Logo />
-        {data && <Pinneds repositories={data.user.pinnedItems.nodes} />}
+        {repositories && <Pinneds repositories={repositories} />}
         <Socials />
       </Layout>
     </>
   )
 }
 
-// Home.getInitialProps = async () => {
-//   const apolloClient = initializeApollo()
-//   const repositories = await apolloClient
-//     .query({ query: PINNED })
-//     .then(data => data.data.user.pinnedItems.nodes)
-//   return { repositories }
-// }
-
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  await apolloClient
+  const data: IPinneds = await apolloClient
     .query({ query: PINNED })
-    .then(data => data.data.user.pinnedItems.nodes)
+    .then(data => ({ repositories: data.data.user.pinnedItems.nodes }))
 
   return {
     props: {
+      repositories: data.repositories,
       initialApolloState: apolloClient.cache.extract()
     }
   }

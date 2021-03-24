@@ -2,22 +2,17 @@ import React from 'react'
 import { GetStaticPaths, NextPage } from 'next'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import { useRouter } from 'next/dist/client/router'
 import { initializeApollo } from '../../services'
 import REPOSITORY from '../../services/REPOSITORY'
-import { useQuery } from '@apollo/client'
 import ReactMarkdown from 'react-markdown'
+import IRepository from '../../typings/IRepository'
 
-const Repository: NextPage = () => {
-  const router = useRouter()
-  const { name } = router.query
+type Props = {
+  data: IRepository
+  name: string
+}
 
-  console.log(name)
-
-  const { data } = useQuery(REPOSITORY, {
-    variables: { name }
-  })
-
+const Repository: NextPage<Props> = ({ data, name }) => {
   return (
     <>
       <Head>
@@ -27,9 +22,7 @@ const Repository: NextPage = () => {
         <div className="zot-container">
           {data && (
             <>
-              <ReactMarkdown>
-                {data.repositoryOwner.repository.object.text}
-              </ReactMarkdown>
+              <ReactMarkdown>{data.object.text}</ReactMarkdown>
             </>
           )}
         </div>
@@ -40,12 +33,14 @@ const Repository: NextPage = () => {
 
 export async function getStaticProps({ params }) {
   const apolloClient = initializeApollo()
-  await apolloClient
+  const data: IRepository = await apolloClient
     .query({ query: REPOSITORY, variables: { name: params.name } })
-    .then(data => data.data)
+    .then(data => data.data.repositoryOwner.repository)
 
   return {
     props: {
+      data,
+      name: params.name,
       initialApolloState: apolloClient.cache.extract()
     }
   }
