@@ -10,6 +10,17 @@ export const Socials = styled.div`
   color: ${({ theme }) => theme.colors.background};
 `
 
+export const Container = styled.div`
+  display: block;
+`
+
+export const Title = styled.h3`
+  padding-bottom: ${({ theme: { gap } }) => `${gap / 2}px`};
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+`
+
 export const List = styled.div`
   display: flex;
   justify-content: center;
