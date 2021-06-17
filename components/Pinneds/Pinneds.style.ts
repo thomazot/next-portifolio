@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const Pinneds = styled.div`
   --background: ${({ theme }) => theme.colors.primary};
   --contrast: ${({ theme }) => theme.colors.background};
-  --color: ${({ theme }) => theme.colors.text};
+  --color: ${({ theme }) => theme.colors.primaryContrast};
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryContrast};
 `
 
 export const List = styled.div`

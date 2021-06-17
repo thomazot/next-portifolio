@@ -18,7 +18,7 @@ const Repository: NextPage<Props> = ({ data, name }) => {
       <Head>
         <title>thomazot - Repository {name}</title>
       </Head>
-      <Layout>
+      <Layout header={true}>
         <div className="zot-container">
           {data && (
             <>

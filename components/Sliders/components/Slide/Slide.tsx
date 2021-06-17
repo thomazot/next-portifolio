@@ -8,14 +8,14 @@ type Props = {
 
 const Slide: React.FC<Props> = ({ children, next = false }) => {
   return (
-    <div className="slide">
+    <CSS.SlideContainer className="slide">
       <CSS.Slide>{children}</CSS.Slide>
       {next && (
         <CSS.Next>
           <CgMouse />
         </CSS.Next>
       )}
-    </div>
+    </CSS.SlideContainer>
   )
 }
 
