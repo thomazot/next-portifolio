@@ -14,10 +14,10 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
     <>
       <Head>
         <title>thomazot - Front End Developer - React,Javascript,Typescript</title>
-        <meta name="description" content="Hello, my name is Thomaz and I'm a Front-End developer working in development for more than 14 years of development as a developer today focused on development with React, NextJS." />
+        <meta name="description" content="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS." />
 
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://thomazot.com.br" />
+        <link rel="canonical" href="https://www.thomazot.com.br" />
       </Head>
       <Layout>
         <Logo />
