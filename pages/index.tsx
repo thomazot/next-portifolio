@@ -13,7 +13,11 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
   return (
     <>
       <Head>
-        <title>thomazot - Front End Developer</title>
+        <title>thomazot - Front End Developer - React,Javascript,Typescript</title>
+        <meta name="description" content="Hello, my name is Thomaz and I'm a Front-End developer working in development for more than 14 years of development as a developer today focused on development with React, NextJS." />
+
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://thomazot.com.br" />
       </Head>
       <Layout>
         <Logo />
