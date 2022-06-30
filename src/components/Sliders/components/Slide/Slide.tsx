@@ -3,6 +3,7 @@ import { CgMouse } from 'react-icons/cg'
 import * as CSS from './Slide.style'
 
 type Props = {
+  children?: React.ReactNode | React.ReactNode[]
   next: boolean
 }
 
