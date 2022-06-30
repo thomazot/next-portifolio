@@ -4,6 +4,7 @@ import * as CSS from './Layout.style'
 import Header from '../Header/Header'
 
 interface LayoutProps {
+  children?: React.ReactNode | React.ReactNode[]
   header?: boolean
 }
 
