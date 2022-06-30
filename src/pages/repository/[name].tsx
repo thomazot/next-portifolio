@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
   const apolloClient = initializeApollo()
   const data: IRepository = await apolloClient
     .query({ query: REPOSITORY, variables: { name: params.name } })
-    .then(data => data.data.repositoryOwner.repository)
+    .then((data) => data.data.repositoryOwner.repository)
 
   return {
     props: {

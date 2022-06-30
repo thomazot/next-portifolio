@@ -16,7 +16,7 @@ export type ResolverContext = {
   res?: ServerResponse
 }
 
-function createIsomorphLink(context: ResolverContext = {}) {
+function createIsomorphLink() {
   const authLink = setContext((_, { headers }) => {
     const token = process.env.REACT_APP_TOKEN_GITHUB
     return {

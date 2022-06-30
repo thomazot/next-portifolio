@@ -13,8 +13,13 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
   return (
     <>
       <Head>
-        <title>thomazot - Front End Developer - React,Javascript,Typescript</title>
-        <meta name="description" content="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS." />
+        <title>
+          thomazot - Front End Developer - React,Javascript,Typescript
+        </title>
+        <meta
+          name="description"
+          content="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS."
+        />
 
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.thomazot.com.br" />
@@ -33,7 +38,7 @@ export async function getStaticProps() {
 
   const data: IPinneds = await apolloClient
     .query({ query: PINNED })
-    .then(data => ({ repositories: data.data.user.pinnedItems.nodes }))
+    .then((data) => ({ repositories: data.data.user.pinnedItems.nodes }))
 
   return {
     props: {

@@ -10,7 +10,7 @@ const Pinneds: React.FC<IPinneds> = ({ repositories }) => {
       <div>
         <CSS.Title>Projects</CSS.Title>
         <CSS.List>
-          {repositories.map(repository => (
+          {repositories.map((repository) => (
             <Repository key={repository.name} repository={repository} />
           ))}
         </CSS.List>
