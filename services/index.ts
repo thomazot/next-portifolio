@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http'
 import { useMemo } from 'react'
 import { setContext } from '@apollo/client/link/context'
-import REPOSITORY from './REPOSITORY'
+
 import {
   ApolloClient,
   InMemoryCache,
