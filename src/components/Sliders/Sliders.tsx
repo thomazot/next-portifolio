@@ -27,7 +27,7 @@ const Sliders: React.FC<Props> = ({ children }) => {
     ScrollTrigger.create({
       snap: 1 / (children.length - 1)
     })
-  }, [])
+  }, [children.length])
 
   return (
     <CSS.Sliders ref={refSliders}>

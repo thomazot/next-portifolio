@@ -18,7 +18,7 @@ const Logo = () => {
 
   useEffect(() => {
     const masterTl = gsap.timeline({ repeat: -1 })
-    words.forEach(word => {
+    words.forEach((word) => {
       const tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 })
 
       tl.to(textRef.current, {
@@ -33,7 +33,7 @@ const Logo = () => {
 
   return (
     <CSS.H1>
-      <span>Hi, I'm </span>
+      <span>{`Hi, I'm `}</span>
       <span ref={textRef}></span>
       <span ref={cursorRef}>_</span>
     </CSS.H1>
