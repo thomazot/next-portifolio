@@ -7,15 +7,14 @@ import { useApollo } from '../services'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState)
-
   return (
     <>
       <ApolloProvider client={apolloClient}>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
           <GlobalStyle />
+          <Component {...pageProps} />
         </ThemeProvider>
       </ApolloProvider>
     </>

@@ -1,4 +1,4 @@
-const theme = {
+export default {
   gap: 32,
   viewport: '1024px',
   colors: {
@@ -9,6 +9,4 @@ const theme = {
     secundary: '#364a73',
     secundaryContrast: '#fff'
   }
-}
-
-export default theme
+} as const

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
@@ -12,10 +12,8 @@ type Props = {
 }
 
 const Sliders: React.FC<Props> = ({ children }) => {
-  const refSliders = useRef()
-
   useEffect(() => {
-    gsap.utils.toArray('.slide').forEach((panel: HTMLElement) => {
+    gsap.utils.toArray<HTMLElement>('.slide').forEach((panel) => {
       ScrollTrigger.create({
         trigger: panel,
         start: 'top top',
@@ -30,7 +28,7 @@ const Sliders: React.FC<Props> = ({ children }) => {
   }, [children.length])
 
   return (
-    <CSS.Sliders ref={refSliders}>
+    <CSS.Sliders>
       {children.map((child, index) => (
         <Slide next={index < children.length - 1} key={index}>
           {child}

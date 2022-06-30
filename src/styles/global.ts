@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export default createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
     padding:0;
@@ -36,3 +36,4 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.colors.background};
   }
 `
+export default GlobalStyles

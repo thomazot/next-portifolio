@@ -32,19 +32,16 @@ function createIsomorphLink() {
   return authLink.concat(httpLink)
 }
 
-function createApolloClient(context?: ResolverContext) {
+function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: createIsomorphLink(context),
+    link: createIsomorphLink(),
     cache: new InMemoryCache()
   })
 }
 
-export function initializeApollo(
-  initialState: any = null,
-  context?: ResolverContext
-) {
-  const _apolloClient = apolloClient ?? createApolloClient(context)
+export function initializeApollo(initialState: any = null) {
+  const _apolloClient = apolloClient ?? createApolloClient()
 
   if (initialState) {
     _apolloClient.cache.restore(initialState)

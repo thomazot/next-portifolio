@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetStaticPaths, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { initializeApollo } from '../../services'
@@ -31,8 +31,9 @@ const Repository: NextPage<Props> = ({ data, name }) => {
   )
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo()
+  if (!params) return { props: {} }
   const data: IRepository = await apolloClient
     .query({ query: REPOSITORY, variables: { name: params.name } })
     .then((data) => data.data.repositoryOwner.repository)
