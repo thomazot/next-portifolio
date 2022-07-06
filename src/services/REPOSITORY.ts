@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client'
 
-const REPOSITORY = gql`
+export const REPOSITORY = gql`
   query repository($name: String!) {
     repositoryOwner(login: "thomazot") {
       repository(name: $name) {
@@ -21,4 +21,29 @@ const REPOSITORY = gql`
   }
 `
 
-export default REPOSITORY
+export const REPOSITORY_PORTFOLIO = gql`
+  query {
+    search(
+      type: REPOSITORY
+      query: "user:thomazot topic:portifolio"
+      first: 10
+    ) {
+      repos: edges {
+        repo: node {
+          ... on Repository {
+            name
+            descriptionHTML
+            shortDescriptionHTML
+            homepageUrl
+            url
+            object(expression: "master:README.md") {
+              ... on Blob {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

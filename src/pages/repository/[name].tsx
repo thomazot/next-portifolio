@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { initializeApollo } from '../../services'
-import REPOSITORY from '../../services/REPOSITORY'
+import { REPOSITORY } from '../../services/REPOSITORY'
 import ReactMarkdown from 'react-markdown'
 import IRepository from '../../typings/IRepository'
 

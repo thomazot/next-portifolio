@@ -4,10 +4,11 @@ import Layout from '../components/Layout'
 import Logo from '../components/Logo'
 import Socials from '../components/Socials'
 import { NextPage } from 'next'
-import PINNED from '../services/PINNED'
+import { PORTFOLIO } from '../services/PINNED'
 import Pinneds from '../components/Pinneds'
 import { initializeApollo } from '../services'
 import IPinneds from '../typings/IPinneds'
+import { ISearchRepository } from 'typings/ISearchRepository'
 
 const Home: NextPage<IPinneds> = ({ repositories }) => {
   return (
@@ -36,13 +37,17 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const data: IPinneds = await apolloClient
-    .query({ query: PINNED })
-    .then((data) => ({ repositories: data.data.user.pinnedItems.nodes }))
+  const {
+    data: {
+      search: { repos }
+    }
+  } = await apolloClient.query<ISearchRepository>({
+    query: PORTFOLIO
+  })
 
   return {
     props: {
-      repositories: data.repositories,
+      repositories: repos.map((repository) => repository.repo),
       initialApolloState: apolloClient.cache.extract()
     }
   }

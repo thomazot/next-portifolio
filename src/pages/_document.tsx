@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={theme.colors.primary} />
           <meta
             name="keywords"
-            content="Front-End,Developer,CSS,HTML,JS,Javascript,Typescript,React,ReactJS,Stylus,SASS,SCSS,Stylus,Styled-Components,Node,NodeJS"
+            content="Front-End,Front,End,Front End,Developer,CSS,HTML,JS,Javascript,Typescript,React,ReactJS,Stylus,SASS,SCSS,Stylus,Styled-Components,Node,NodeJS"
           />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black" />

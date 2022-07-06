@@ -8,7 +8,7 @@ const Repository: React.FC<{ repository: IRepository }> = ({ repository }) => {
   return (
     <CSS.Repository>
       <header>
-        <h1>{repository.name}</h1>
+        <h1>{repository.description}</h1>
       </header>
       <div
         dangerouslySetInnerHTML={{ __html: repository.shortDescriptionHTML }}
