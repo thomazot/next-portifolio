@@ -4,6 +4,7 @@ type Readme = {
 
 interface IRepository {
   name: string
+  description: string
   descriptionHTML: string
   shortDescriptionHTML: string
   homepageUrl: string
