@@ -5,7 +5,7 @@ import Layout from '../../components/Layout'
 import { initializeApollo } from '../../services'
 import { REPOSITORY } from '../../services/REPOSITORY'
 import ReactMarkdown from 'react-markdown'
-import IRepository from '../../typings/IRepository'
+import IRepository from '../../@types/IRepository'
 
 type Props = {
   data: IRepository

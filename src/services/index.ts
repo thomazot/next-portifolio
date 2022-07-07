@@ -1,5 +1,4 @@
 import { IncomingMessage, ServerResponse } from 'http'
-import { useMemo } from 'react'
 import { setContext } from '@apollo/client/link/context'
 
 import {
@@ -52,9 +51,4 @@ export function initializeApollo(initialState: any = null) {
   if (!apolloClient) apolloClient = _apolloClient
 
   return _apolloClient
-}
-
-export function useApollo(initialState: any) {
-  const store = useMemo(() => initializeApollo(initialState), [initialState])
-  return store
 }
