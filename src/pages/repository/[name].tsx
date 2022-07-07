@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Layout from '../../components/Layout'
+import Layout from '../../templates/Layout'
 import { initializeApollo } from '../../services'
 import { REPOSITORY } from '../../services/REPOSITORY'
 import ReactMarkdown from 'react-markdown'
