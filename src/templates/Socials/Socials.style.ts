@@ -35,7 +35,6 @@ export const Link = styled.a`
   align-items: center;
   color: ${({ theme }) => theme.colors.background};
   border-radius: 4px;
-  border: solid 2px ${({ theme }) => theme.colors.background};
   margin: 16px;
 
   svg {

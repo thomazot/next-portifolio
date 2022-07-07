@@ -26,7 +26,7 @@
     "axios": "^0.27.2",
     "graphql": "^16.5.0",
     "gsap": "^3.10.4",
-    "next": "^12.0.10",
+    "next": "12.2.1-canary.1",
     "next-pwa": "^5.4.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -66,6 +66,7 @@
     "plop": "^3.0.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "prettier": "^2.5.1",
+    "storybook-addon-apollo-client": "^4.0.12",
     "storybook-addon-next-router": "^3.1.1",
     "typescript": "^4.5.5"
   }

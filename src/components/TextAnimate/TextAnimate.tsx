@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/dist/TextPlugin'
-import * as CSS from './Logo.style'
+import * as CSS from './TextAnimate.style'
 
 gsap.registerPlugin(TextPlugin)
 
-const Logo = () => {
+const TextAnimate = () => {
   const [words] = useState([
     'Thomaz.',
     'a Father.',
@@ -32,12 +32,12 @@ const Logo = () => {
   }, [textRef, cursorRef, words])
 
   return (
-    <CSS.H1>
+    <CSS.Text>
       <span>{`Hi, I'm `}</span>
       <span ref={textRef}></span>
       <span ref={cursorRef}>_</span>
-    </CSS.H1>
+    </CSS.Text>
   )
 }
 
-export default Logo
+export default TextAnimate

@@ -7,21 +7,15 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body, html, #__next {
-    width: 100%;
+  body, html, #__next, #root {
+    height: 100%;
+    position: relative;
   }
 
   body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font: 400 16px Roboto, sans-serif;
-  }
-
-  html, #__next {
-    height: -webkit-fill-available;
   }
 
   ::-webkit-scrollbar {
