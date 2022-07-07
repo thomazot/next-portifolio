@@ -1,6 +1,6 @@
 import React from 'react'
 import IPinneds from '../../@types/IPinneds'
-import Repository from '../Repository'
+import Repository from '../../components/Repository'
 
 import * as CSS from './Pinneds.style'
 
