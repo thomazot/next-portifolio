@@ -13,8 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, header = false }) => {
     <CSS.Container>
       {header && <Header />}
       <main>
-        {!Array.isArray(children) && children}
-        {Array.isArray(children) && <Sliders>{children}</Sliders>}
+        {Array.isArray(children) ? <Sliders>{children}</Sliders> : children}
       </main>
     </CSS.Container>
   )
