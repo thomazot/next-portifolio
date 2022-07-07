@@ -1,4 +1,4 @@
-import TextAnimate from 'components/TextAnimate'
+import TextAnimate from 'common/TextAnimate'
 import React from 'react'
 
 import * as CSS from './Home.style'

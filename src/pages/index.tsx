@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Layout from '../templates/Layout'
-import TextAnimate from '../components/TextAnimate'
+import TextAnimate from '../common/TextAnimate'
 import SocialsTemplate from '../templates/Socials'
 import { NextPage } from 'next'
 import { PORTFOLIO } from '../services/PINNED'
