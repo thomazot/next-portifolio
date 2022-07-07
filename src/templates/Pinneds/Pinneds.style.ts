@@ -26,7 +26,7 @@ export const List = styled.div`
   }
 `
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   display: block;
   font-size: 28px;
   font-weight: 700;

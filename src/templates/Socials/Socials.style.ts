@@ -14,7 +14,7 @@ export const Container = styled.div`
   display: block;
 `
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   padding-bottom: ${({ theme: { gap } }) => `${gap / 2}px`};
   font-size: 28px;
   font-weight: 700;
@@ -40,6 +40,10 @@ export const Link = styled.a`
   svg {
     width: 40px;
     height: 40px;
+  }
+
+  span {
+    display: none;
   }
 
   &:hover {

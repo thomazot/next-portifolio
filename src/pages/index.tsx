@@ -1,12 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
-import Layout from '../templates/Layout'
-import TextAnimate from '../common/TextAnimate'
-import SocialsTemplate from '../templates/Socials'
+import Layout from 'templates/Layout'
+import HomeTemplate from 'templates/Home'
+import SocialsTemplate from 'templates/Socials'
 import { NextPage } from 'next'
-import { PORTFOLIO } from '../services/PINNED'
-import PinnedsTemplate from '../templates/Pinneds'
-import { initializeApollo } from '../services'
+import { PORTFOLIO } from 'services/PINNED'
+import PinnedsTemplate from 'templates/Pinneds'
+import { initializeApollo } from 'services'
 import IPinneds from 'types/IPinneds'
 import { ISearchRepository } from 'types/ISearchRepository'
 
@@ -26,7 +26,7 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
         <link rel="canonical" href="https://www.thomazot.com.br" />
       </Head>
       <Layout>
-        <TextAnimate />
+        <HomeTemplate />
         {repositories && <PinnedsTemplate repositories={repositories} />}
         <SocialsTemplate />
       </Layout>
