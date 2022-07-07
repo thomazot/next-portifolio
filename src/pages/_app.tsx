@@ -10,11 +10,12 @@ import { GlobalProvider } from 'contexts/GlobalContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState)
+
   return (
     <>
       <ApolloProvider client={apolloClient}>
         <ThemeProvider theme={theme}>
-          <GlobalProvider>
+          <GlobalProvider initial={pageProps.initialGlobal}>
             <GlobalStyle />
             <Component {...pageProps} />
           </GlobalProvider>
