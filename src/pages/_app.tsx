@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ApolloProvider client={apolloClient}>
         <ThemeProvider theme={theme}>
-          <GlobalProvider initial={pageProps.initialGlobal}>
+          <GlobalProvider initial={pageProps.initialGlobal || null}>
             <GlobalStyle />
             <Component {...pageProps} />
           </GlobalProvider>
