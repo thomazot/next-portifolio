@@ -2,10 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import TextAnimate from '../components/TextAnimate'
-import Socials from '../templates/Socials'
+import SocialsTemplate from '../templates/Socials'
 import { NextPage } from 'next'
 import { PORTFOLIO } from '../services/PINNED'
-import Pinneds from '../templates/Pinneds'
+import PinnedsTemplate from '../templates/Pinneds'
 import { initializeApollo } from '../services'
 import IPinneds from '../@types/IPinneds'
 import { ISearchRepository } from '../@types/ISearchRepository'
@@ -27,8 +27,8 @@ const Home: NextPage<IPinneds> = ({ repositories }) => {
       </Head>
       <Layout>
         <TextAnimate />
-        {repositories && <Pinneds repositories={repositories} />}
-        <Socials />
+        {repositories && <PinnedsTemplate repositories={repositories} />}
+        <SocialsTemplate />
       </Layout>
     </>
   )
