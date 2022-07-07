@@ -1,7 +1,7 @@
 import React from 'react'
-import Sliders from '../../common/Sliders'
+import Sliders from 'common/Sliders'
 import * as CSS from './Layout.style'
-import Header from '../../common/Header/Header'
+import Header from 'common/Header/Header'
 
 interface LayoutProps {
   children?: React.ReactNode | React.ReactNode[]

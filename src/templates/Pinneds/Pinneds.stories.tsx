@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import IPinneds from '../../@types/IPinneds'
+import IPinneds from 'types/IPinneds'
 import Pinneds from '.'
 
 export default {

@@ -7,8 +7,8 @@ import { NextPage } from 'next'
 import { PORTFOLIO } from '../services/PINNED'
 import PinnedsTemplate from '../templates/Pinneds'
 import { initializeApollo } from '../services'
-import IPinneds from '../@types/IPinneds'
-import { ISearchRepository } from '../@types/ISearchRepository'
+import IPinneds from 'types/IPinneds'
+import { ISearchRepository } from 'types/ISearchRepository'
 
 const Home: NextPage<IPinneds> = ({ repositories }) => {
   return (

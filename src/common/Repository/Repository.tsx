@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import IRepository from '../../@types/IRepository'
+import IRepository from 'types/IRepository'
 
 import * as CSS from './Repository.style'
 
