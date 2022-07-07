@@ -8,11 +8,16 @@ export const Slide = styled.section`
   height: 100vh;
 `
 
-export const Next = styled.span`
+export const Next = styled.button`
   position: absolute;
-  bottom: 8vh;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
+  background: none;
+  border: 0;
+  color: currentColor;
+  width: 60px;
+  height: 60px;
 
   svg {
     width: 26px;
@@ -20,10 +25,6 @@ export const Next = styled.span`
     position: relative;
     animation: 0.8s linear 0.8s infinite next-animate;
     fill: currentColor;
-  }
-
-  @media (max-width: 500px) {
-    bottom: 20vh;
   }
 
   @keyframes next-animate {
