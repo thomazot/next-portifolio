@@ -43,7 +43,7 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Lint
-      run: yarn eslint src --fix
+      run: yarn eslint src/**/*.ts src/**/*.tsx --fix
 
     # - name: Build
     #   run: yarn build
