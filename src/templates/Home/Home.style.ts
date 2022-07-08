@@ -20,8 +20,8 @@ export const Content = styled.div`
   padding: 16px;
   margin-bottom: 32px;
 `
-export const Title = styled.h1`
-  span {
+export const Title = styled.div`
+  h1 {
     display: none;
   }
 `

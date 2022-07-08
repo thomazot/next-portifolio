@@ -9,11 +9,11 @@ const Home: React.FC = () => {
     <CSS.Container>
       <CSS.Content>
         <CSS.Title>
-          <span>
+          <h1>
             {`Hello, I'm a Front-End developer with more than 14 years of
             development as a developer today focused on development with React,
             NextJS.`}
-          </span>
+          </h1>
           <Favicon
             title="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS."
             height="74"
