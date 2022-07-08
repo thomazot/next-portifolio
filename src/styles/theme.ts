@@ -7,6 +7,8 @@ export default {
     primary: '#00abe4',
     primaryContrast: '#fff',
     secundary: '#364a73',
-    secundaryContrast: '#fff'
+    secundaryContrast: '#fff',
+    tertiary: '#1E1E21',
+    tertiaryContrast: '#fff'
   }
 } as const

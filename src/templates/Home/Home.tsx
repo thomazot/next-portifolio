@@ -1,4 +1,4 @@
-import Logo from 'common/Logo'
+import Favicon from 'common/Favicon'
 import TextAnimate from 'common/TextAnimate'
 import React from 'react'
 
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             development as a developer today focused on development with React,
             NextJS.`}
           </span>
-          <Logo
+          <Favicon
             title="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS."
             height="74"
           />

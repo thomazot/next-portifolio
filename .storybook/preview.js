@@ -2,8 +2,8 @@ import { MockedProvider } from '@apollo/client/testing'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { ThemeProvider } from 'styled-components'
 
-import GlobalStyles from '../src/styles/global'
-import theme from '../src/styles/theme'
+import GlobalStyles from 'src/styles/global'
+import theme from 'src/styles/theme'
 
 export const parameters = {
   apolloClient: {

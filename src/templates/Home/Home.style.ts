@@ -1,22 +1,23 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-  --font-size-text: 5vw;
+  ${({ theme }) => css`
+    --font-size-text: 5vw;
+    --secundary: ${theme.colors.secundaryContrast};
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: ${({ theme }) => theme.colors.secundary};
-  color: ${({ theme }) => theme.colors.secundaryContrast};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: ${theme.colors.secundary};
+    color: ${theme.colors.secundaryContrast};
+  `}
 `
 
 export const Content = styled.div`
   padding: 16px;
-  background: ${({ theme }) => theme.colors.secundaryContrast};
-  border-radius: 8px;
   margin-bottom: 32px;
 `
 export const Title = styled.h1`

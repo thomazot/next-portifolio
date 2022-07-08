@@ -1,33 +1,44 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  * {
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-  }
+  ${({ theme }) => css`
+    :root {
+      --primary: ${theme.colors.primary};
+      --secundary: ${theme.colors.secundary};
+      --tertiary: ${theme.colors.tertiary};
+    }
 
-  body, html, #__next, #root {
-    height: 100%;
-    position: relative;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
-    font: 400 16px Roboto, sans-serif;
-  }
+    body,
+    html,
+    #__next,
+    #root {
+      height: 100%;
+      position: relative;
+    }
 
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
+    body {
+      background: ${theme.colors.background};
+      color: ${theme.colors.text};
+      font: 400 16px Roboto, sans-serif;
+    }
 
-  ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.text};
-  }
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
 
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.background};
-  }
+    ::-webkit-scrollbar-track {
+      background: ${theme.colors.text};
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${theme.colors.background};
+    }
+  `}
 `
 export default GlobalStyles

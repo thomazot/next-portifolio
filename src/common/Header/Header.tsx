@@ -1,4 +1,4 @@
-import Logo from 'common/Logo/Logo'
+import Logo from 'common/Logo'
 import React from 'react'
 import * as CSS from './Header.style'
 

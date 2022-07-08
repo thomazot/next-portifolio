@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2020": true,
@@ -20,6 +21,9 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ],
     "ecmaFeatures": {
       "jsx": true
     },
