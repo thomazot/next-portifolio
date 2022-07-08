@@ -1,5 +1,6 @@
 import Logo from 'common/Logo'
 import React from 'react'
+
 import * as CSS from './Header.style'
 
 const Header = () => {
