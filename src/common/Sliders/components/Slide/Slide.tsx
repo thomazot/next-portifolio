@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { CgMouse } from 'react-icons/cg'
 import * as CSS from './Slide.style'
 
@@ -7,9 +7,12 @@ type Props = {
   next: boolean
 }
 
-const Slide: React.FC<Props> = ({ children, next = false }) => {
+const Slide: React.ForwardRefRenderFunction<HTMLDivElement, Props> = (
+  { children, next = false },
+  ref
+) => {
   return (
-    <CSS.SlideContainer className="slide">
+    <CSS.SlideContainer ref={ref} className="slide">
       <CSS.Slide>{children}</CSS.Slide>
       {next && (
         <CSS.Next>
@@ -20,4 +23,4 @@ const Slide: React.FC<Props> = ({ children, next = false }) => {
   )
 }
 
-export default Slide
+export default forwardRef(Slide)

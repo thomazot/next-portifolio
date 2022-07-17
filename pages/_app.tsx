@@ -2,11 +2,10 @@ import React from 'react'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import { ApolloProvider } from '@apollo/client'
-import { UserProvider } from '@auth0/nextjs-auth0'
-import { useApollo } from '../hooks/useApollo'
+import { useApollo } from 'hooks/useApollo'
 
-import GlobalStyle from '../styles/global'
-import theme from '../styles/theme'
+import GlobalStyle from 'styles/global'
+import theme from 'styles/theme'
 import { GlobalProvider } from 'contexts/GlobalContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,9 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <GlobalProvider initial={pageProps.initialGlobal || null}>
             <GlobalStyle />
-            <UserProvider>
-              <Component {...pageProps} />
-            </UserProvider>
+            <Component {...pageProps} />
           </GlobalProvider>
         </ThemeProvider>
       </ApolloProvider>

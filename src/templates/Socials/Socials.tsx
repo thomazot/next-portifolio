@@ -8,7 +8,7 @@ import * as CSS from './Socials.style'
 
 const Socials: React.FC = () => {
   return (
-    <CSS.Socials>
+    <CSS.Socials data-name="socials">
       <CSS.Container>
         <CSS.Title>Socials</CSS.Title>
         <CSS.List>

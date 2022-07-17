@@ -6,6 +6,10 @@ const GlobalStyles = createGlobalStyle`
       --primary: ${theme.colors.primary};
       --secundary: ${theme.colors.secundary};
       --tertiary: ${theme.colors.tertiary};
+
+      @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+      }
     }
 
     * {
@@ -38,6 +42,10 @@ const GlobalStyles = createGlobalStyle`
 
     ::-webkit-scrollbar-thumb {
       background: ${theme.colors.background};
+    }
+
+    img {
+      object-fit: cover;
     }
   `}
 `

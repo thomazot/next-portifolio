@@ -6,7 +6,7 @@ import * as CSS from './Pinneds.style'
 
 const Pinneds: React.FC<IPinneds> = ({ repositories }) => {
   return (
-    <CSS.Pinneds>
+    <CSS.Pinneds data-name="projects">
       <div>
         <CSS.Title>Projects</CSS.Title>
         <CSS.List>

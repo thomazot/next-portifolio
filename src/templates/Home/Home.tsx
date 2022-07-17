@@ -6,7 +6,7 @@ import * as CSS from './Home.style'
 
 const Home: React.FC = () => {
   return (
-    <CSS.Container>
+    <CSS.Container data-name="home">
       <CSS.Content>
         <CSS.Title>
           <h1>
