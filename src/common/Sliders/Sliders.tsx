@@ -38,7 +38,7 @@ const Sliders: React.FC<Props> = ({ children }) => {
       // console.log('----------------------------------------------------')
 
       gsap.to(window, {
-        duration: 1,
+        duration: 0,
         scrollTo: {
           y: currentElementIndex === 0 ? 0 : refs.current[currentElementIndex],
           offsetY: 0
@@ -52,14 +52,14 @@ const Sliders: React.FC<Props> = ({ children }) => {
       ScrollTrigger.create({
         trigger: ref,
         start: 'top top',
-        pin: true,
+        pin: false,
         pinSpacing: false
       })
     })
 
-    ScrollTrigger.create({
-      snap: 1 / (children?.length - 1)
-    })
+    // ScrollTrigger.create({
+    //   snap: 1 / (children?.length - 1)
+    // })
 
     // setTimeout(() => {
     //   if (refs?.current)

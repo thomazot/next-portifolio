@@ -13,17 +13,17 @@ export default function Menu() {
       </S.Button>
       <S.Content open={open}>
         <S.List>
-          <S.Item>
+          <S.Item onClick={() => setOpen(false)}>
             <Link href="/" passHref>
               <S.Link>Home</S.Link>
             </Link>
           </S.Item>
-          <S.Item>
+          <S.Item onClick={() => setOpen(false)}>
             <Link href="/#projects" passHref>
               <S.Link>Projects</S.Link>
             </Link>
           </S.Item>
-          <S.Item>
+          <S.Item onClick={() => setOpen(false)}>
             <Link href="/#socials" passHref>
               <S.Link>Socials</S.Link>
             </Link>
