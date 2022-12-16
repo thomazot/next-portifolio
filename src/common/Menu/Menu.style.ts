@@ -126,12 +126,16 @@ export const Item = styled.li`
   margin: 0;
 `
 
-export const Link = styled.a`
+export const Link = styled.button`
   cursor: pointer;
   display: block;
   padding: ${({ theme }) => theme.gap / 2}px;
   text-decoration: none;
   color: currentColor;
+  border: 0;
+  background: none;
+  width: 100%;
+  text-align: left;
 
   &:hover {
     background: ${({ theme }) => theme.colors.primary};

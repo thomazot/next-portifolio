@@ -6,9 +6,7 @@ const Logo: React.FC<{ width?: string; height?: string; title?: string }> = (
   props
 ) => (
   <Link href="/">
-    <a>
-      <LogoIcon {...props} />
-    </a>
+    <LogoIcon {...props} />
   </Link>
 )
 

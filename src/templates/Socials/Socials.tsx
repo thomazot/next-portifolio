@@ -8,44 +8,38 @@ import * as CSS from './Socials.style'
 
 const Socials: React.FC = () => {
   return (
-    <CSS.Socials data-name="socials">
+    <CSS.Socials id="socials" data-name="socials">
       <CSS.Container>
         <CSS.Title>Socials</CSS.Title>
         <CSS.List>
           <h3>
-            <Link href="https://www.linkedin.com/in/thomazot/">
-              <CSS.Link
-                href="https://www.linkedin.com/in/thomazot/"
-                target="_blank"
-                title="LinkedIn"
-              >
-                <span>LinkedIn: @thomazot</span>
-                <FaLinkedin />
-              </CSS.Link>
+            <Link
+              href="https://www.linkedin.com/in/thomazot/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <span>LinkedIn: @thomazot</span>
+              <FaLinkedin />
             </Link>
           </h3>
           <h3>
-            <Link href="https://github.com/thomazot">
-              <CSS.Link
-                title="GitHub"
-                href="https://github.com/thomazot"
-                target="_blank"
-              >
-                <span>GitHub: @thomazot</span>
-                <FaGithub />
-              </CSS.Link>
+            <Link
+              title="GitHub"
+              href="https://github.com/thomazot"
+              target="_blank"
+            >
+              <span>GitHub: @thomazot</span>
+              <FaGithub />
             </Link>
           </h3>
           <h3>
-            <Link href="mailto:contato@thomazot.com.br">
-              <CSS.Link
-                title="E-Mail"
-                href="mailto:contato@thomazot.com.br"
-                target="_blank"
-              >
-                <span>E-Mail: @thomazot</span>
-                <MdEmail />
-              </CSS.Link>
+            <Link
+              title="E-Mail"
+              href="mailto:contato@thomazot.com.br"
+              target="_blank"
+            >
+              <span>E-Mail: @thomazot</span>
+              <MdEmail />
             </Link>
           </h3>
         </CSS.List>

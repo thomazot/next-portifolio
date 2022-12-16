@@ -14,9 +14,7 @@ const Repository: React.FC<{ repository: IRepository }> = ({ repository }) => {
         dangerouslySetInnerHTML={{ __html: repository.shortDescriptionHTML }}
       ></div>
       <footer>
-        <Link href={`/repository/${repository.name}`}>
-          <a>View more</a>
-        </Link>
+        <Link href={`/repository/${repository.name}`}>View more</Link>
       </footer>
     </CSS.Repository>
   )

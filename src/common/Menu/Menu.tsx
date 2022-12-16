@@ -1,10 +1,17 @@
 import { useState } from 'react'
-import Link from 'next/link'
+import gsap from 'gsap'
 
 import * as S from './Menu.style'
 
 export default function Menu() {
   const [open, setOpen] = useState(false)
+
+  function handleClick(anchor: string) {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: anchor
+    })
+  }
 
   return (
     <S.Container>
@@ -14,19 +21,10 @@ export default function Menu() {
       <S.Content open={open}>
         <S.List>
           <S.Item onClick={() => setOpen(false)}>
-            <Link href="/" passHref>
-              <S.Link>Home</S.Link>
-            </Link>
+            <S.Link onClick={() => handleClick('#home')}>Home</S.Link>
           </S.Item>
           <S.Item onClick={() => setOpen(false)}>
-            <Link href="/#projects" passHref>
-              <S.Link>Projects</S.Link>
-            </Link>
-          </S.Item>
-          <S.Item onClick={() => setOpen(false)}>
-            <Link href="/#socials" passHref>
-              <S.Link>Socials</S.Link>
-            </Link>
+            <S.Link onClick={() => handleClick('#socials')}>Socials</S.Link>
           </S.Item>
         </S.List>
       </S.Content>

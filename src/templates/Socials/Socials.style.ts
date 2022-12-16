@@ -25,29 +25,29 @@ export const List = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
 
-export const Link = styled.a`
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.background};
-  border-radius: 4px;
-  margin: 16px;
+  a {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${({ theme }) => theme.colors.background};
+    border-radius: 4px;
+    margin: 16px;
 
-  svg {
-    width: 40px;
-    height: 40px;
-  }
+    svg {
+      width: 40px;
+      height: 40px;
+    }
 
-  span {
-    display: none;
-  }
+    span {
+      display: none;
+    }
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    border-color: ${({ theme }) => theme.colors.primary};
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+      border-color: ${({ theme }) => theme.colors.primary};
+    }
   }
 `

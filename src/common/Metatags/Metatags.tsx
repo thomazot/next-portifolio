@@ -9,7 +9,7 @@ const Metatags: React.FC = () => {
       <meta name="description" content={metaTags.description} />
       <meta name="keywords" content={metaTags.keywords} />
       <meta name="robots" content={metaTags.robots} />
-      <link rel="canonical" href={dataLayer.url} />
+      <link rel="canonical" href={metaTags.canonical || dataLayer.url} />
     </Head>
   )
 }

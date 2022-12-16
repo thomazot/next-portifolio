@@ -9,9 +9,7 @@ const Favicon: React.FC<{
   title?: string
 }> = (props) => (
   <Link href="/">
-    <a>
-      <FaviconIcon {...props} />
-    </a>
+    <FaviconIcon {...props} />
   </Link>
 )
 
