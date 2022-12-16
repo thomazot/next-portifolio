@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       pageTypeName: pageProps?.initialDataLayer?.pageTypeName || '',
       url: `${baseURL}${router.pathname}`
     }),
-    [router, pageProps]
+    [router, pageProps, baseURL]
   )
 
   useEffect(() => {
