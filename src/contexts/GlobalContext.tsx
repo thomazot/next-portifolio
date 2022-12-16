@@ -1,29 +1,51 @@
 import { createContext, FC, useState } from 'react'
 
-export const INITIAL_HEAD = {
-  title: 'thomazot - Front End Developer - React,Javascript,Typescript',
-  description:
-    "Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS.",
+const INITIAL_METATAGS = {
+  title: '',
+  description: '',
   keywords:
     'Front-End,Front,End,Front End,Developer,CSS,HTML,JS,Javascript,Typescript,React,ReactJS,Stylus,SASS,SCSS,Stylus,Styled-Components,Node,NodeJS',
-  canonical: 'https://www.thomazot.com.br'
+  canonical: 'https://www.thomazot.com.br',
+  robots: 'index, follow'
+}
+const INITIAL_DATALAYER = {
+  pageTypeName: '',
+  url: ''
 }
 
+type IMetatags = typeof INITIAL_METATAGS
+export type IDataLayer = typeof INITIAL_DATALAYER
+
 type IGlobal = {
-  head: typeof INITIAL_HEAD
-  setHead: (head: typeof INITIAL_HEAD) => void
+  metaTags: IMetatags
+  setMetaTags: (metatags: IMetatags) => void
+  dataLayer: IDataLayer
+  setDataLayer: (datalayer: IDataLayer) => void
 }
 
 export const GlobalContext = createContext<IGlobal | null>(null)
-
-export const GlobalProvider: FC<{ initial?: typeof INITIAL_HEAD }> = ({
+type IGlobalProvider = {
+  initialMetaTags: IMetatags
+  initialDataLayer: IDataLayer
+}
+export const GlobalProvider: FC<IGlobalProvider> = ({
   children,
-  initial = INITIAL_HEAD
+  initialMetaTags,
+  initialDataLayer
 }) => {
-  const [head, setHead] = useState<typeof INITIAL_HEAD>(initial)
+  const [metaTags, setMetaTags] = useState<IMetatags>({
+    ...INITIAL_METATAGS,
+    ...initialMetaTags
+  })
+  const [dataLayer, setDataLayer] = useState<IDataLayer>({
+    ...INITIAL_DATALAYER,
+    ...initialDataLayer
+  })
 
   return (
-    <GlobalContext.Provider value={{ head, setHead }}>
+    <GlobalContext.Provider
+      value={{ metaTags, setMetaTags, dataLayer, setDataLayer }}
+    >
       {children}
     </GlobalContext.Provider>
   )

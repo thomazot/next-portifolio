@@ -16,8 +16,10 @@ export type ResolverContext = {
 }
 
 function createIsomorphLink() {
+  const uri = process.env.REACT_APP_DATOCMS_URL
+  const token = process.env.REACT_APP_DATOCMS_TOKEN
+
   const authLink = setContext((_, { headers }) => {
-    const token = process.env.REACT_APP_TOKEN_GITHUB
     return {
       headers: {
         ...headers,
@@ -26,7 +28,7 @@ function createIsomorphLink() {
     }
   })
   const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql'
+    uri
   })
   return authLink.concat(httpLink)
 }
