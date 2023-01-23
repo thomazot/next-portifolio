@@ -3,12 +3,21 @@ import { createGlobalStyle, css } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
   ${({ theme }) => css`
     :root {
+      --background: ${theme.colors.background};
+      --color: ${theme.colors.text};
       --primary: ${theme.colors.primary};
       --secundary: ${theme.colors.secundary};
       --tertiary: ${theme.colors.tertiary};
 
       @media (prefers-reduced-motion: no-preference) {
         scroll-behavior: smooth;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: ${theme.colors.dark.background};
+        --color: ${theme.colors.dark.text};
       }
     }
 
@@ -27,8 +36,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      background: ${theme.colors.background};
-      color: ${theme.colors.text};
+      background: var(--background);
+      color: var(--color);
       font: 400 16px Roboto, sans-serif;
     }
 

@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Hours from 'components/Hours'
-import Minutes from 'components/Minutes'
-import Seconds from 'components/Seconds'
+import TimerHours from 'components/TimerClock'
 
 const Container = styled.div`
   display: flex;
@@ -30,11 +28,11 @@ const Pipe = styled.span`
 const Timer = () => {
   return (
     <Container>
-      <Hours />
+      <TimerHours type="hours" />
       <Pipe />
-      <Minutes />
+      <TimerHours type="minutes" />
       <Pipe />
-      <Seconds />
+      <TimerHours type="seconds" />
     </Container>
   )
 }

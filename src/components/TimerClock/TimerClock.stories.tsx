@@ -1,13 +1,17 @@
 import { Story, Meta } from '@storybook/react'
 import Container from 'common/Container'
-import Seconds from '.'
+import TimerClock from '.'
+import { TimerClockProps } from './TimerClock'
 
 export default {
-  title: 'Components/Seconds',
-  component: Seconds
-} as Meta
+  title: 'Components/TimerClock',
+  component: TimerClock,
+  args: {
+    type: 'seconds'
+  }
+} as Meta<TimerClockProps>
 
-export const Default: Story = () => (
+export const Default: Story<TimerClockProps> = (props) => (
   <Container
     style={{
       background: '#333',
@@ -17,6 +21,6 @@ export const Default: Story = () => (
       alignItems: 'center'
     }}
   >
-    <Seconds />
+    <TimerClock {...props} />
   </Container>
 )

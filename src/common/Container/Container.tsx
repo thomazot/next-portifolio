@@ -6,6 +6,7 @@ const Container = styled.div`
     margin: 0 auto;
     position: relative;
     max-width: 100%;
+    min-height: 100%;
     overflow: hidden;
 
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
