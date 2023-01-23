@@ -1,23 +1,25 @@
 import React from 'react'
 import Sliders from 'common/Sliders'
-import * as CSS from './Layout.style'
 import Header from 'common/Header/Header'
-import Menu from 'common/Menu'
+import Menu, { MenuItemType } from 'common/Menu'
+
+import * as S from './Layout.style'
 
 interface LayoutProps {
   children?: React.ReactNode | React.ReactNode[]
   header?: boolean
+  menu: MenuItemType[]
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, header = false }) => {
+const Layout: React.FC<LayoutProps> = ({ children, header = false, menu }) => {
   return (
-    <CSS.Container>
+    <S.ContainerLayout>
       {header && <Header />}
-      <Menu />
+      <Menu items={menu} />
       <main>
         {Array.isArray(children) ? <Sliders>{children}</Sliders> : children}
       </main>
-    </CSS.Container>
+    </S.ContainerLayout>
   )
 }
 

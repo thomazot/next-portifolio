@@ -1,8 +1,10 @@
+import Container from 'common/Container'
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  .zot-container {
+export const ContainerLayout = styled.div`
+  ${Container} {
     width: ${({ theme }) => theme.viewport};
+    position: relative;
     max-width: calc(100% - ${({ theme }) => `${theme.gap}px`});
     margin: 0 auto;
     font-size: 14px;
@@ -21,6 +23,12 @@ export const Container = styled.div`
           color: ${({ theme }) => theme.colors.primary};
         }
       }
+    }
+    &,
+    main {
+      width: 100%;
+      min-height: 100vh;
+      max-height: 100%;
     }
   }
   section {

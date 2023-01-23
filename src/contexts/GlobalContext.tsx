@@ -27,6 +27,7 @@ export const GlobalContext = createContext<IGlobal | null>(null)
 type IGlobalProvider = {
   initialMetaTags: IMetatags
   initialDataLayer: IDataLayer
+  children: React.ReactNode | React.ReactNode[]
 }
 export const GlobalProvider: FC<IGlobalProvider> = ({
   children,

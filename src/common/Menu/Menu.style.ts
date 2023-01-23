@@ -1,18 +1,10 @@
 import styled, { css } from 'styled-components'
-
-export const Container = styled.nav`
-  width: 300px;
-  max-width: calc(100% - 68px);
-  height: 100%;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 100;
-`
+import ButtonDefault from '../Form/Button'
 
 const ModifiedButton = {
   Open: css`
-    right: 100%;
+    top: 0;
+    right: 300px;
     span {
       transform: rotate(45deg);
 
@@ -29,16 +21,20 @@ const ModifiedButton = {
         bottom: 0;
       }
     }
+
+    @media (max-width: 358px) {
+      right: calc(100% - 58px);
+    }
   `,
   Close: css``
 }
 
-export const Button = styled.button<{ open: boolean }>`
+export const Button = styled(ButtonDefault)<{ open: boolean }>`
   ${({ theme, open }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: ${theme.gap / 2}px;
     top: ${theme.gap / 2}px;
     z-index: 100;
@@ -51,6 +47,7 @@ export const Button = styled.button<{ open: boolean }>`
     color: transparent;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    font-size: 0;
 
     span {
       display: block;
@@ -98,14 +95,15 @@ export const ModifiedList = {
 }
 export const Content = styled.div<{ open: boolean }>`
   ${({ theme, open }) => css`
-    position: relative;
+    position: fixed;
     margin-left: auto;
     z-index: 1;
     top: 0;
     right: 0;
-    height: 100%;
-    width: 100%;
-    max-width: calc(100% - ${theme.gap}px);
+    min-height: 100vh;
+    max-height: 100%;
+    width: 300px;
+    max-width: calc(100% - 58px);
     transition: all 0.3s ease-in-out;
     background: ${theme.colors.background};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -126,7 +124,7 @@ export const Item = styled.li`
   margin: 0;
 `
 
-export const Link = styled.button`
+export const Link = styled.a`
   cursor: pointer;
   display: block;
   padding: ${({ theme }) => theme.gap / 2}px;

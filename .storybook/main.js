@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['../src/common/**/*stories.tsx', '../src/templates/**/*stories.tsx'],
+  stories: ['../src/common/**/*stories.tsx', '../src/components/**/*stories.tsx', '../src/templates/**/*stories.tsx'],
   addons: ['@storybook/addon-essentials', '@storybook/addon-postcss', 'storybook-addon-next-router', 'storybook-addon-apollo-client'],
   babel: async (options) => ({
     ...options,

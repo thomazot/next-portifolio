@@ -6,7 +6,7 @@ import * as CSS from './Home.style'
 
 const Home: React.FC = () => {
   return (
-    <CSS.Container id="home" data-name="home">
+    <CSS.ContainerHome id="home" data-name="home">
       <CSS.Content>
         <CSS.Title>
           <h1>
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
       </CSS.Content>
 
       <TextAnimate />
-    </CSS.Container>
+    </CSS.ContainerHome>
   )
 }
 

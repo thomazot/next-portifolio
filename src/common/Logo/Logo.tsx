@@ -1,12 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
-import LogoIcon from 'assets/imgs/logo.svg'
+import { LogoStyle } from './Logo.style'
 
-const Logo: React.FC<{ width?: string; height?: string; title?: string }> = (
-  props
-) => (
-  <Link href="/">
-    <LogoIcon {...props} />
+export type LogoSize = 'XS' | 'S' | 'R' | 'L' | 'XL'
+
+export type LogoProps = {
+  size?: LogoSize
+  link?: string
+}
+
+const Logo: React.FC<LogoProps> = ({ size = 'R', link = '/' }) => (
+  <Link href={link}>
+    <LogoStyle size={size} />
   </Link>
 )
 

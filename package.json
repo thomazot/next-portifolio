@@ -23,18 +23,22 @@
   "dependencies": {
     "@apollo/client": "^3.7.2",
     "@auth0/nextjs-auth0": "^2.0.1",
+    "@hookform/resolvers": "^2.9.10",
     "axios": "^1.2.1",
+    "firebase": "^9.16.0",
     "graphql": "^16.6.0",
     "gsap": "^3.11.3",
     "next": "13.0.7",
     "next-pwa": "^5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.42.1",
     "react-icons": "^4.7.1",
     "react-markdown": "^8.0.4",
     "smooth-scrollbar": "^8.8.1",
     "styled-components": "^5.3.6",
-    "user-agents": "^1.0.1231"
+    "user-agents": "^1.0.1231",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",

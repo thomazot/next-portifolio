@@ -1,6 +1,7 @@
+import Container from 'common/Container'
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
+export const ContainerHome = styled(Container)`
   ${({ theme }) => css`
     --font-size-text: 5vw;
     --secundary: ${theme.colors.secundaryContrast};

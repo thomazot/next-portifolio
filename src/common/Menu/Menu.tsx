@@ -1,33 +1,55 @@
-import { useState } from 'react'
+import { useState, useCallback, MouseEvent, FC } from 'react'
 import gsap from 'gsap'
+import Link from 'next/link'
 
 import * as S from './Menu.style'
 
-export default function Menu() {
+export type MenuItemType = {
+  name: string
+  link: string
+}
+
+export type MenuType = {
+  items: MenuItemType[]
+}
+
+const Menu: FC<MenuType> = ({ items }) => {
   const [open, setOpen] = useState(false)
 
-  function handleClick(anchor: string) {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: anchor
-    })
-  }
+  const handleChangeOpen = useCallback(() => {
+    setOpen((oldOpen) => !oldOpen)
+  }, [])
+
+  const handleClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    const anchor = event.currentTarget.hash || 0
+    setOpen(false)
+    if (anchor) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: anchor
+      })
+    }
+  }, [])
 
   return (
-    <S.Container>
-      <S.Button open={open} onClick={() => setOpen((open) => !open)}>
+    <>
+      <S.Button open={open} onClick={handleChangeOpen}>
         <span>Menu</span>
       </S.Button>
       <S.Content open={open}>
         <S.List>
-          <S.Item onClick={() => setOpen(false)}>
-            <S.Link onClick={() => handleClick('#home')}>Home</S.Link>
-          </S.Item>
-          <S.Item onClick={() => setOpen(false)}>
-            <S.Link onClick={() => handleClick('#socials')}>Socials</S.Link>
-          </S.Item>
+          {items.map((item) => (
+            <S.Item key={item.name}>
+              <Link href={item.link} passHref legacyBehavior>
+                <S.Link onClick={handleClick}>{item.name}</S.Link>
+              </Link>
+            </S.Item>
+          ))}
         </S.List>
       </S.Content>
-    </S.Container>
+    </>
   )
 }
+
+export default Menu

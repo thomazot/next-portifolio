@@ -6,12 +6,17 @@ import { NextPage } from 'next'
 import { initializeApollo } from 'services'
 import { PAGE } from 'services/PAGE'
 import Metatags from 'common/Metatags'
+import { MENU } from 'services/MENU'
+import { useQuery } from '@apollo/client'
+import { MenuItemType } from 'common/Menu'
 
 const Home: NextPage = () => {
+  const { data } = useQuery<{ allMenus: MenuItemType[] }>(MENU)
+
   return (
     <>
       <Metatags />
-      <Layout>
+      <Layout menu={data?.allMenus || []}>
         <HomeTemplate />
         <SocialsTemplate />
       </Layout>
@@ -33,6 +38,8 @@ export async function getStaticProps() {
       page
     }
   })
+
+  await apolloClient.query({ query: MENU })
 
   return {
     props: {
