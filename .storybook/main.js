@@ -12,5 +12,5 @@ module.exports = {
     config.resolve.modules.push(`${process.cwd()}/src`)
     return config
   },
-  staticDirs: ['../public', '../static']
+  staticDirs: ['../public']
 }
