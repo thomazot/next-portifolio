@@ -1,10 +1,20 @@
 import { useState, useEffect } from 'react'
 import * as firebase from '../services/firebase'
+import { UserCredential, AuthError } from 'firebase/auth'
 
-type UserType = {
+export type UserType = {
   uid: string
   email: string
 }
+
+export type SignInWithEmailAndPasswordType = (
+  email: string,
+  password: string
+) => Promise<UserCredential | undefined>
+
+export type SignOutType = () => void
+
+export type ErrorType = { code: string; message: string }
 
 const formatAuthUser = (user: UserType) => ({
   uid: user.uid,
@@ -12,8 +22,9 @@ const formatAuthUser = (user: UserType) => ({
 })
 
 export default function useFirebaseAuth() {
-  const [authUser, setAuthUser] = useState<UserType | null>(null)
+  const [authUser, setAuthUser] = useState<UserType>()
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<ErrorType>()
 
   const authStateChanged = (authState: UserType) => {
     if (!authState) {
@@ -28,24 +39,42 @@ export default function useFirebaseAuth() {
   }
 
   const clear = () => {
-    setAuthUser(null)
-    setLoading(true)
+    setAuthUser(undefined)
+    setLoading(false)
   }
 
-  const signInWithEmailAndPassword = (email: string, password: string) =>
-    firebase.signInWithEmailAndPassword(email, password)
+  const signInWithEmailAndPassword: SignInWithEmailAndPasswordType = async (
+    email: string,
+    password: string
+  ) => {
+    try {
+      setLoading(true)
+      setError(undefined)
+      return await firebase
+        .signInWithEmailAndPassword(email, password)
+        .finally(() => setLoading(false))
+    } catch (error: any) {
+      setError({
+        code: error.code,
+        message: error.message
+      })
+    }
+  }
 
   const signOut = () => firebase.signOut().then(clear)
 
   useEffect(() => {
     const unsubscribe = firebase.onAuthStateChanged(authStateChanged)
-    return () => unsubscribe()
+    return () => {
+      if (typeof unsubscribe === 'function') unsubscribe()
+    }
   }, [])
 
   return {
     authUser,
     loading,
     signInWithEmailAndPassword,
-    signOut
+    signOut,
+    error
   }
 }

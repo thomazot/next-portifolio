@@ -28,6 +28,7 @@ export type ColorsType = {
   tertiaryContrast: string
   gray: string
   error: string
+  disabled: string
 }
 export type TypographySizeType = {
   [SizeType.EXTRA_EXTRA_LARGE]: string
@@ -47,6 +48,7 @@ export type ThemeType = {
   gap: number
   viewport: string
   radius: string
+  opacity: number
   breakpoint: BreakpointType
   colors: ColorsType
   typography: TypographyType
@@ -57,6 +59,7 @@ const theme: ThemeType = {
   gap: 32,
   viewport: '1024px',
   radius: '3px',
+  opacity: 0.5,
   breakpoint: {
     tablet: '1024px',
     desktop: '1440px'
@@ -73,7 +76,8 @@ const theme: ThemeType = {
     tertiary: '#1E1E21',
     tertiaryContrast: '#fff',
     gray: '#eee',
-    error: '#f00'
+    error: '#f00',
+    disabled: '#eee'
   },
   typography: {
     sizes: {

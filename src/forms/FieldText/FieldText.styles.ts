@@ -77,8 +77,8 @@ export const Error = styled.div<{ show?: boolean }>`
   `}
 `
 
-export const Container = styled.label<{ error?: boolean }>`
-  ${({ theme, error }) => css`
+export const Container = styled.label<{ error?: boolean; disabled?: boolean }>`
+  ${({ theme, error, disabled }) => css`
     display: block;
     position: relative;
     width: 100%;
@@ -110,5 +110,16 @@ export const Container = styled.label<{ error?: boolean }>`
         }
       }
     }
+
+    ${disabled &&
+    css`
+      color: ${theme.colors.text};
+      opacity: ${theme.opacity};
+      pointer-events: none;
+
+      ${Input} {
+        background: white;
+      }
+    `}
   `}
 `

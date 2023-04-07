@@ -1,15 +1,24 @@
 import Logo from 'common/Logo'
 import React from 'react'
 
-import * as CSS from './Header.style'
+import Views from 'common/Views/Views'
+import * as S from './Header.style'
+import Container from 'common/Container/Container'
 
-const Header = () => {
+type HeaderProps = {
+  children?: React.ReactNode | React.ReactNode[]
+}
+
+const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <CSS.Header>
-      <div className="container">
-        <Logo size={'S'} link="/" />
-      </div>
-    </CSS.Header>
+    <S.Header>
+      <Container>
+        <Views alignItems="center" justifyContent="space-between">
+          <Logo size={'R'} link="/" />
+          {children && children}
+        </Views>
+      </Container>
+    </S.Header>
   )
 }
 

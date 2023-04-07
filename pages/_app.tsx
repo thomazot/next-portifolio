@@ -7,6 +7,7 @@ import GlobalStyle from 'styles/global'
 import { GlobalProvider, IDataLayer } from 'contexts/GlobalContext'
 import { useRouter } from 'next/router'
 import gtmVirtualPageView from 'helpers/gtmVirtualPageView'
+import ErrorBoundary from 'templates/ErrorBoundary'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState)
@@ -26,15 +27,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ApolloProvider client={apolloClient}>
-        <GlobalProvider
-          initialMetaTags={pageProps.initialMetaTags || null}
-          initialDataLayer={dataLayer || null}
-        >
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </GlobalProvider>
-      </ApolloProvider>
+      <ErrorBoundary>
+        <ApolloProvider client={apolloClient}>
+          <GlobalProvider
+            initialMetaTags={pageProps.initialMetaTags || null}
+            initialDataLayer={dataLayer || null}
+          >
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </GlobalProvider>
+        </ApolloProvider>
+      </ErrorBoundary>
     </>
   )
 }

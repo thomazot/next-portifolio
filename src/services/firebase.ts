@@ -1,18 +1,29 @@
-import firebase from 'firebase/app'
-import authFirebase from 'firebase/auth'
+import * as firebase from 'firebase/app'
+import * as authFirebase from 'firebase/auth'
 
-if (!firebase.getApp()) {
-  firebase.initializeApp({
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
-  })
-}
+firebase.initializeApp({
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+})
 
-export const auth = authFirebase.getAuth(firebase.getApp())
-export const signOut = () => authFirebase.signOut(auth)
+export const signOut = (): Promise<void> =>
+  authFirebase.signOut(authFirebase.getAuth(firebase.getApp()))
+
 export const onAuthStateChanged = (authStateChanged: any) =>
-  authFirebase.onAuthStateChanged(auth, authStateChanged)
+  authFirebase.onAuthStateChanged(
+    authFirebase.getAuth(firebase.getApp()),
+    authStateChanged
+  )
+
 export const signInWithEmailAndPassword = (email: string, password: string) =>
-  authFirebase.signInWithEmailAndPassword(auth, email, password)
-export default firebase
+  authFirebase.signInWithEmailAndPassword(
+    authFirebase.getAuth(firebase.getApp()),
+    email,
+    password
+  )

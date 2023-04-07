@@ -1,19 +1,32 @@
 import styled, { css } from 'styled-components'
 
-const Container = styled.div`
-  ${({ theme }) => css`
-    display: block;
+type ContainerType = {
+  fullscreen?: boolean
+  center?: boolean
+}
+
+const Container = styled.div<ContainerType>`
+  ${({ theme, fullscreen, center }) => css`
     margin: 0 auto;
     position: relative;
     max-width: 100%;
-    min-height: 100%;
-    overflow: hidden;
-    padding: 0 16px;
+
+    ${fullscreen &&
+    css`
+      min-height: 100%;
+    `}
+
+    ${center &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    `}
 
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
       max-width: ${theme.breakpoint.tablet};
       max-width: 90%;
-      padding: 0;
     }
 
     @media screen and (min-width: ${theme.breakpoint.desktop}) {
