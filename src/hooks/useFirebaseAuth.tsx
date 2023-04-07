@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as firebase from '../services/firebase'
-import { UserCredential, AuthError } from 'firebase/auth'
+import { UserCredential } from 'firebase/auth'
 
 export type UserType = {
   uid: string
