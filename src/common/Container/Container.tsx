@@ -8,10 +8,12 @@ const Container = styled.div`
     max-width: 100%;
     min-height: 100%;
     overflow: hidden;
+    padding: 0 16px;
 
     @media screen and (min-width: ${theme.breakpoint.tablet}) {
       max-width: ${theme.breakpoint.tablet};
       max-width: 90%;
+      padding: 0;
     }
 
     @media screen and (min-width: ${theme.breakpoint.desktop}) {

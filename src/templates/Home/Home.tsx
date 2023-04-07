@@ -1,28 +1,29 @@
-import Favicon from 'common/Favicon'
-import TextAnimate from 'common/TextAnimate'
+import Container from 'common/Container'
+import Button from 'forms/Button'
+import Text from 'common/Text'
+import Title from 'common/Title'
+import Views from 'common/Views'
 import React from 'react'
-
-import * as CSS from './Home.style'
+import { SizeType } from 'styles/theme'
 
 const Home: React.FC = () => {
   return (
-    <CSS.ContainerHome id="home" data-name="home">
-      <CSS.Content>
-        <CSS.Title>
-          <h1>
-            {`Hello, I'm a Front-End developer with more than 14 years of
+    <Container>
+      <Views center>
+        <Views direction="column" gap={1}>
+          <Title size={SizeType.LARGE}>Hi, my name is</Title>
+          <Title as="h2">Thomaz T. O. Toyama</Title>
+          <Text style={{ maxWidth: '450px' }}>
+            {`I'm a Front-End developer with more than 14 years of
             development as a developer today focused on development with React,
-            NextJS.`}
-          </h1>
-          <Favicon
-            title="Hello, I'm a Front-End developer with more than 14 years of development as a developer today focused on development with React, NextJS."
-            height="74"
-          />
-        </CSS.Title>
-      </CSS.Content>
-
-      <TextAnimate />
-    </CSS.ContainerHome>
+            NextJS. `}
+          </Text>
+          <Button secondary inline>
+            Contact me.
+          </Button>
+        </Views>
+      </Views>
+    </Container>
   )
 }
 

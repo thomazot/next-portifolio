@@ -1,10 +1,9 @@
 import { Story, Meta } from '@storybook/react'
 import Container from 'common/Container'
-import FieldText from '.'
-import { FieldTextProps } from './FieldText'
+import FieldText, { FieldTextProps } from './FieldText'
 
 export default {
-  title: 'Commons/Form/FieldText',
+  title: 'Forms/FieldText',
   component: FieldText,
   args: {
     label: 'Usuário'

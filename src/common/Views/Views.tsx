@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 
 type ViewsProps = {
   center?: boolean
+  direction?: 'column' | 'row'
+  gap?: number | string
 }
 
 const modifiedViews = {
@@ -14,10 +16,14 @@ const modifiedViews = {
 }
 
 const Views = styled.div<ViewsProps>`
-  ${({ center }) => css`
+  ${({ center, direction, gap, theme }) => css`
     display: flex;
-    flex-flow: row nowrap;
+    flex-direction: ${direction ? direction : 'row'};
     ${center && modifiedViews['center']}
+    ${gap &&
+    css`
+      gap: ${typeof gap === 'number' ? (theme.gap / 2) * gap : gap}px;
+    `}
   `}
 `
 

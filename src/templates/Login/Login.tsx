@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import Button from 'common/Form/Button'
-import FieldText from 'common/Form/FieldText'
+import Button from 'forms/Button'
+import FieldText from 'forms/FieldText'
 
 import * as S from './Login.styles'
 

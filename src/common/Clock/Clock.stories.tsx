@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react'
 import Container from 'common/Container'
 import { useEffect, useState } from 'react'
 import Clock from '.'
+import Views from 'common/Views/Views'
 
 export default {
   title: 'Commons/Clock',
@@ -30,16 +31,10 @@ export const Default: Story = () => {
   }, [])
 
   return (
-    <Container
-      style={{
-        background: '#333',
-        minHeight: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <Clock shuffle={shuffle} clock={clock} />
+    <Container>
+      <Views center>
+        <Clock shuffle={shuffle} clock={clock} />
+      </Views>
     </Container>
   )
 }

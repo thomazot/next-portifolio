@@ -8,10 +8,19 @@ export const Form = styled.form`
     padding: ${theme.gap}px;
     border: solid 1px ${theme.colors.gray};
     border-radius: ${theme.radius};
-    background: #fff;
     width: 500px;
     max-width: calc(100% - ${theme.gap}px);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+    ${theme.mode === 'dark'
+      ? css`
+          background: ${theme.colors.backgroundContrast};
+          color: ${theme.colors.textContrast};
+        `
+      : css`
+          background: ${theme.colors.background};
+          color: ${theme.colors.text};
+        `}
   `}
 `
 export const Title = styled.h1`

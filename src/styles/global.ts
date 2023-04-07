@@ -9,15 +9,10 @@ const GlobalStyles = createGlobalStyle`
       --secundary: ${theme.colors.secundary};
       --tertiary: ${theme.colors.tertiary};
 
+      --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
       @media (prefers-reduced-motion: no-preference) {
         scroll-behavior: smooth;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --background: ${theme.colors.dark.background};
-        --color: ${theme.colors.dark.text};
       }
     }
 
@@ -56,6 +51,37 @@ const GlobalStyles = createGlobalStyle`
     img {
       object-fit: cover;
     }
+
+    /* a {
+      display: inline-block;
+      text-decoration: none;
+      text-decoration-skip-ink: auto;
+      transition: var(--transition);
+      color: var(--primary);
+      line-height: 1.3;
+
+      &:hover {
+        color: var(--primary);
+        outline: 0px;
+
+        &:after {
+          width: 100%;
+        }
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 1px;
+        position: relative;
+        bottom: 0.37em;
+        background-color: var(--primary);
+        transition: var(--transition);
+        opacity: 0.5;
+        margin-top: 5px;
+      }
+    } */
   `}
 `
 export default GlobalStyles

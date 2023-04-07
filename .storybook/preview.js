@@ -1,9 +1,8 @@
 import { MockedProvider } from '@apollo/client/testing'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
-import { ThemeProvider } from 'styled-components'
+import { GlobalProvider } from "contexts/GlobalContext"
 
 import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
 
 export const parameters = {
   layout: "fullscreen",
@@ -14,11 +13,12 @@ export const parameters = {
     Provider: RouterContext.Provider
   }
 }
+
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
+    <GlobalProvider>
       <GlobalStyles />
       <Story />
-    </ThemeProvider>
+    </GlobalProvider>
   )
 ]

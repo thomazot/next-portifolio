@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import ButtonDefault from '../Form/Button'
+import ButtonDefault from '../../forms/Button'
 
 const ModifiedButton = {
   Open: css`
@@ -35,7 +35,7 @@ export const Button = styled(ButtonDefault)<{ open: boolean }>`
     justify-content: center;
     align-items: center;
     position: fixed;
-    right: ${theme.gap / 2}px;
+    left: ${theme.gap / 2}px;
     top: ${theme.gap / 2}px;
     z-index: 100;
     background: none;
@@ -48,6 +48,7 @@ export const Button = styled(ButtonDefault)<{ open: boolean }>`
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     font-size: 0;
+    padding: 0;
 
     span {
       display: block;
@@ -97,7 +98,7 @@ export const Content = styled.div<{ open: boolean }>`
   ${({ theme, open }) => css`
     position: fixed;
     margin-left: auto;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     right: 0;
     min-height: 100vh;

@@ -11,7 +11,7 @@ export const Input = styled.input`
     &:focus,
     &:active,
     &:hover {
-      border-color: ${theme.colors.gray};
+      border-color: ${theme.colors.primary};
       outline: none;
     }
   `}
@@ -46,6 +46,7 @@ export const Error = styled.div<{ show?: boolean }>`
   }
 
   ${({ theme, show }) => css`
+    pointer-events: none;
     position: absolute;
     top: -10px;
     right: -10px;
