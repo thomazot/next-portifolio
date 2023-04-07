@@ -11,7 +11,7 @@ const News: React.FC<{ news: INews[] }> = ({ news }) => {
             <Image
               src={`/api/imageProxy?url=${item.urlToImage}`}
               width="300"
-              height="300px"
+              height="300"
               alt={item.title}
             />
           </div>
