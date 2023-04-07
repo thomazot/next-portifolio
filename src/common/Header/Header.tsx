@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <CSS.Header>
       <div className="container">
-        <Logo width="300" height="74" />
+        <Logo size={'S'} link="/" />
       </div>
     </CSS.Header>
   )
