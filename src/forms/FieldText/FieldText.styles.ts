@@ -1,29 +1,60 @@
 import styled, { css } from 'styled-components'
+import Text from 'common/Text'
+import { IconPositionType } from './FieldText'
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+
+type InputType = {
+  hasIcon?: boolean
+  iconPosition?: IconPositionType
+}
+
+export const Input = styled.input<InputType>`
+  ${({ theme, hasIcon, iconPosition = 'right' }) => css`
+    background: ${theme.colors.background};
+    color: ${theme.colors.text};
     border solid 1px ${theme.colors.gray};
     border-radius: ${theme.radius};
     height: 50px;
     width: 100%;
     padding: 0 ${theme.gap / 2}px;
 
+    ${
+      hasIcon &&
+      css`
+        ${iconPosition === 'right'
+          ? css`
+              padding-right: 40px;
+            `
+          : css`
+              padding-left: 40px;
+            `}
+      `
+    }
+
     &:focus,
     &:active,
     &:hover {
       border-color: ${theme.colors.primary};
       outline: none;
+
+      ~ span,
+      ~ i {
+        color: ${theme.colors.primary};
+      }
     }
   `}
 `
 export const Label = styled.span`
-  display: block;
-  position: absolute;
-  font-size: 16px;
-  top: -12px;
-  left: 16px;
-  background: #fff;
-  padding: 5px;
+  ${({ theme }) => css`
+    display: block;
+    position: absolute;
+    font-size: 16px;
+    top: -12px;
+    left: 16px;
+    background: ${theme.colors.background};
+    padding: 5px;
+  `}
 `
 
 export const Error = styled.div<{ show?: boolean }>`
@@ -90,7 +121,7 @@ export const Container = styled.label<{ error?: boolean; disabled?: boolean }>`
       }
 
       ${Label} {
-        color: ${theme.colors.error};
+        color: ${theme.colors.error} !important;
       }
     `}
 
@@ -116,10 +147,38 @@ export const Container = styled.label<{ error?: boolean; disabled?: boolean }>`
       color: ${theme.colors.text};
       opacity: ${theme.opacity};
       pointer-events: none;
-
-      ${Input} {
-        background: white;
-      }
     `}
   `}
+`
+
+type IconType = {
+  iconPosition: IconPositionType
+}
+
+export const Icon = styled(Text)<IconType>`
+  ${({ iconPosition = 'right' }) => css`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    ${iconPosition === 'right'
+      ? css`
+          right: 16px;
+        `
+      : css`
+          left: 16px;
+        `}
+  `}
+`
+
+export const Loading = styled(AiOutlineLoading3Quarters)`
+  animation: loading-spinner 1s linear infinite;
+
+  @keyframes loading-spinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `

@@ -1,38 +1,84 @@
 import styled, { css } from 'styled-components'
-import { ThemeType } from 'styles/theme'
 import { ButtonProps } from './Button'
+import TextCommon from 'common/Text'
 
 const modifiedButton = {
-  primary: (theme: ThemeType & ButtonProps) => css`
-    background: ${theme.colors.primary};
-
-    &:hover {
-      background: ${theme.colors.secundary};
+  primary: css`
+    ${({ theme }) => css`
+      background: ${theme.colors.primary};
       color: ${theme.colors.primaryContrast};
-    }
-  `,
-  secondary: (theme: ThemeType & ButtonProps) => css`
-    ${theme.mode === 'dark'
-      ? css`
-          background: none;
-          border: solid 1px ${theme.colors.primary};
-        `
-      : css`
-          background: ${theme.colors.primary};
-          border: solid 1px ${theme.colors.primary};
-        `}
 
-    &:hover {
+      &:hover {
+        background: ${theme.colors.secondary};
+        color: ${theme.colors.primaryContrast};
+      }
+    `}
+  `,
+  secondary: css`
+    ${({ theme }) => css`
+      color: ${theme.colors.primaryContrast};
       ${theme.mode === 'dark'
         ? css`
-            background: ${theme.colors.primary};
-            color: ${theme.colors.primaryContrast};
+            background: none;
+            border: solid 1px ${theme.colors.secondary};
           `
         : css`
-            background: none;
-            color: ${theme.colors.primary};
+            background: ${theme.colors.secondary};
+            border: solid 1px ${theme.colors.secondary};
           `}
-    }
+
+      &:hover {
+        ${theme.mode === 'dark'
+          ? css`
+              background: ${theme.colors.secondary};
+              color: ${theme.colors.secondaryContrast};
+            `
+          : css`
+              background: none;
+              color: ${theme.colors.secondary};
+            `}
+      }
+    `}
+  `,
+  transparent: css`
+    ${({ theme }) => css`
+      background: none;
+      color: ${theme.colors.primary};
+
+      &:hover {
+        color: ${theme.colors.text};
+      }
+    `}
+  `,
+  theme: css`
+    ${({ theme }) => css`
+      background: ${theme.colors.background};
+      color: ${theme.colors.text};
+
+      &:hover {
+        background: ${theme.colors.backgroundContrast};
+        color: ${theme.colors.textContrast};
+      }
+    `}
+  `,
+  'theme-inverted': css`
+    ${({ theme }) => css`
+      background: ${theme.mode === 'dark'
+        ? theme.colors.backgroundContrast
+        : theme.colors.background};
+      color: ${theme.mode === 'dark'
+        ? theme.colors.textContrast
+        : theme.colors.text};
+
+      &:hover {
+        background: ${theme.mode === 'dark'
+          ? theme.colors.background
+          : theme.colors.backgroundContrast};
+        color: ${theme.mode === 'dark'
+          ? theme.colors.text
+          : theme.colors.textContrast};
+      }
+    `}
   `
 }
 
@@ -89,32 +135,40 @@ const ButtonLoading = css`
 `
 
 export const Button = styled.button<
-  Omit<ButtonProps, 'loading'> & { loading: string }
+  Omit<ButtonProps, 'loading'> & { loading: string; noText: boolean }
 >`
-  ${({ theme, secondary, inline, loading = 'false' }) => css`
+  ${({ themeType = 'primary', inline, noText, loading = 'false' }) => css`
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     border: 0;
     border-radius: 3px;
-    color: ${theme.colors.primaryContrast};
     height: 50px;
     font-size: 14px;
-    padding: 16px 32px;
+    padding: ${noText ? '16px' : '16px 32px'};
     cursor: pointer;
     user-select: none;
     transition: all 0.2s ease-in-out;
+    line-height: 1;
 
+    ${noText &&
+    css`
+      min-width: 50px;
+      max-width: 50px;
+    `}
     ${inline
       ? css`
-          display: inline-block;
+          display: inline-flex;
           width: max-content;
         `
       : css`
-          display: block;
+          display: flex;
           width: 100%;
         `}
 
-    ${secondary
-      ? modifiedButton.secondary(theme)
-      : modifiedButton.primary(theme)}
+    ${modifiedButton?.[themeType]
+      ? modifiedButton[themeType]
+      : modifiedButton.primary}
 
     &:focus {
       outline: none;
@@ -123,3 +177,6 @@ export const Button = styled.button<
     ${loading === 'true' && ButtonLoading}
   `}
 `
+
+export const Icon = styled(TextCommon)``
+export const Text = styled(TextCommon)``

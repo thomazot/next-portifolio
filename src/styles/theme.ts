@@ -22,8 +22,8 @@ export type ColorsType = {
   textContrast: string
   primary: string
   primaryContrast: string
-  secundary: string
-  secundaryContrast: string
+  secondary: string
+  secondaryContrast: string
   tertiary: string
   tertiaryContrast: string
   gray: string
@@ -59,7 +59,7 @@ const theme: ThemeType = {
   gap: 32,
   viewport: '1024px',
   radius: '3px',
-  opacity: 0.5,
+  opacity: 0.8,
   breakpoint: {
     tablet: '1024px',
     desktop: '1440px'
@@ -71,8 +71,8 @@ const theme: ThemeType = {
     textContrast: '#fff',
     primary: '#00abe4',
     primaryContrast: '#fff',
-    secundary: '#364a73',
-    secundaryContrast: '#fff',
+    secondary: '#364a73',
+    secondaryContrast: '#fff',
     tertiary: '#1E1E21',
     tertiaryContrast: '#fff',
     gray: '#eee',

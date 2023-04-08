@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.76 117.63">
   <defs>
     <style>
-      .favicon__pipe{fill:var(--secundary);}
+      .favicon__pipe{fill:var(--secondary);}
       .favicon__arrow{fill:var(--primary);}
     </style>
   </defs>

@@ -9,7 +9,11 @@ import FieldText from 'forms/FieldText'
 import * as S from './Login.styles'
 import Views from 'common/Views/Views'
 import Container from 'common/Container/Container'
-import { useAuth } from 'contexts/AuthContext'
+
+import {
+  ErrorType,
+  SignInWithEmailAndPasswordType
+} from 'hooks/useFirebaseAuth'
 
 const schemaLogin = yup.object({
   username: yup.string().required('Ops! E-mail is required'),
@@ -21,17 +25,21 @@ interface IFormInput {
   password: string
 }
 
-const Login: React.FC = () => {
+export type LoginProps = {
+  loading: boolean
+  error?: ErrorType
+  onSubmit: SignInWithEmailAndPasswordType
+}
+
+const Login: React.FC<LoginProps> = ({ loading, error, onSubmit }) => {
   const { register, handleSubmit, formState } = useForm<IFormInput>({
     mode: 'onChange',
     resolver: yupResolver(schemaLogin)
   })
   const { errors } = formState
 
-  const { signInWithEmailAndPassword, error, loading } = useAuth()
-
   async function handleSubmitLogin(data: IFormInput) {
-    signInWithEmailAndPassword(data.username, data.password)
+    onSubmit(data.username, data.password)
   }
 
   return (

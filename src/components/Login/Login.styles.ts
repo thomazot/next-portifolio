@@ -11,16 +11,6 @@ export const Form = styled.form`
     width: 500px;
     max-width: calc(100% - ${theme.gap}px);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-
-    ${theme.mode === 'dark'
-      ? css`
-          background: ${theme.colors.backgroundContrast};
-          color: ${theme.colors.textContrast};
-        `
-      : css`
-          background: ${theme.colors.background};
-          color: ${theme.colors.text};
-        `}
   `}
 `
 export const Title = styled.h1`

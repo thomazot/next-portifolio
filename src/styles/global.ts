@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
       --background: ${theme.colors.background};
       --color: ${theme.colors.text};
       --primary: ${theme.colors.primary};
-      --secundary: ${theme.colors.secundary};
+      --secondary: ${theme.colors.secondary};
       --tertiary: ${theme.colors.tertiary};
 
       --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -61,8 +61,8 @@ const GlobalStyles = createGlobalStyle`
     select:-webkit-autofill,
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
-      -webkit-text-fill-color: currentColor;
-      -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+      -webkit-text-fill-color: ${theme.colors.text};
+      -webkit-box-shadow: 0 0 0px 1000px ${theme.colors.background} inset;
       transition: background-color 5000s ease-in-out 0s;
     }
 

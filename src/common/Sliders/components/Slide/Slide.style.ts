@@ -37,6 +37,6 @@ export const Next = styled.button`
   }
 `
 export const SlideContainer = styled.div`
-  background: ${({ theme }) => theme.colors.secundary};
-  color: ${({ theme }) => theme.colors.secundaryContrast};
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.secondaryContrast};
 `

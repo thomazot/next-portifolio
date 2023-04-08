@@ -6,7 +6,7 @@ import useFirebaseAuth, {
   SignOutType,
   UserType
 } from 'hooks/useFirebaseAuth'
-import Login from 'components/Login/Login'
+import Login from 'templates/Login'
 
 type AuthContextType = {
   authUser?: UserType

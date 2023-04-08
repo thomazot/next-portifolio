@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Container from 'common/Container'
+import Views from 'common/Views'
 import Menu from '.'
 import { MenuMock } from './Menu.mock'
 
@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 export const Default: Story = () => (
-  <Container center fullscreen>
+  <Views>
     <Menu items={MenuMock} />
-  </Container>
+  </Views>
 )

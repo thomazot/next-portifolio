@@ -4,7 +4,7 @@ import {
   FlexDirectionType,
   FlexItemType,
   FlexJustifyContentType
-} from 'styles/types'
+} from 'templates/styles/types'
 
 type ViewsProps = {
   center?: boolean

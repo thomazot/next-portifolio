@@ -6,7 +6,7 @@ const ModifiedButton = {
     ${() => css`
       span {
         &:nth-child(1) {
-          top: 12px;
+          top: 15px;
           width: 0%;
           left: 50%;
         }
@@ -20,7 +20,7 @@ const ModifiedButton = {
         }
 
         &:nth-child(4) {
-          top: 12px;
+          top: 15px;
           width: 0%;
           left: 50%;
         }
@@ -34,43 +34,42 @@ export const ButtonSpan = styled.span`
   ${({ theme }) => css`
     display: block;
     position: absolute;
-    height: 2px;
-    width: 100%;
+    height: 1px;
+    width: calc(100% - 10px);
     background: ${theme.colors.primary};
     border-radius: 9px;
     opacity: 1;
-    left: 0;
+    left: 5px;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
 
     &:nth-child(1) {
-      top: 0;
+      top: 7px;
     }
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 12px;
+      top: 15px;
     }
 
     &:nth-child(4) {
-      top: 25px;
+      top: 23px;
     }
   `}
 `
 
 export const Button = styled(ButtonDefault)<{ open: boolean }>`
   ${({ theme, open }) => css`
-    position: fixed;
-    left: ${theme.gap / 2}px;
-    top: ${theme.gap / 2}px;
-    z-index: 100;
-    width: 35px;
-    height: 35px;
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
     transform: rotate(0deg);
     transition: all 0.3s ease-in-out;
+    margin: ${theme.gap / 2}px;
     cursor: pointer;
     background: none;
-    padding: 0;
+    padding: 5px;
 
     &:hover {
       background: none;
@@ -86,16 +85,15 @@ export const ModifiedList = {
   Close: css`
     visibility: hidden;
     opacity: 0;
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   `
 }
 export const Content = styled.div<{ open: boolean }>`
   ${({ theme, open }) => css`
     position: fixed;
-    margin-left: auto;
     z-index: 20;
     top: 0;
-    right: 0;
+    left: 0;
     min-height: 100vh;
     max-height: 100%;
     width: 300px;
