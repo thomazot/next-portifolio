@@ -22,7 +22,7 @@ export const Default: Story<ButtonProps> = (args) => (
 export const Loading: Story<ButtonProps> = (args) => (
   <Container center fullscreen>
     <Views center>
-      <Button {...args}>Button Primary</Button>
+      <Button {...args}>Button Primary 1</Button>
     </Views>
   </Container>
 )
