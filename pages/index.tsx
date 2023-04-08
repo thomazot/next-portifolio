@@ -8,7 +8,7 @@ import { PAGE } from 'services/PAGE'
 import Metatags from 'common/Metatags'
 import { MENU } from 'services/MENU'
 import { useQuery } from '@apollo/client'
-import { MenuItemType } from 'common/Menu'
+import { MenuItemType } from 'components/Menu'
 
 const Home: NextPage = () => {
   const { data } = useQuery<{ allMenus: MenuItemType[] }>(MENU)

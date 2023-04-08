@@ -1,8 +1,7 @@
 import React from 'react'
 import Header from 'components/Header/Header'
-import Menu, { MenuItemType } from 'common/Menu'
+import Menu, { MenuItemType } from 'components/Menu'
 
-import * as S from './Layout.style'
 import Views from 'common/Views/Views'
 
 interface LayoutProps {

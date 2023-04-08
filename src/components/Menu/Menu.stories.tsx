@@ -4,7 +4,7 @@ import Menu from '.'
 import { MenuMock } from './Menu.mock'
 
 export default {
-  title: 'Commons/Menu',
+  title: 'Components/Menu',
   component: Menu
 } as Meta
 

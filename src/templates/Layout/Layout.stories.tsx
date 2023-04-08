@@ -4,7 +4,7 @@ import Pinneds from 'templates/Pinneds'
 import { PinnedsMock } from 'templates/Pinneds/Pinneds.mock'
 import Socials from 'templates/Socials'
 import Layout from '.'
-import { MenuMock } from 'common/Menu/Menu.mock'
+import { MenuMock } from 'components/Menu/Menu.mock'
 
 export default {
   title: 'Templates/Layout',
