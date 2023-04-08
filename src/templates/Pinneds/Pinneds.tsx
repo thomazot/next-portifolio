@@ -2,20 +2,22 @@ import React from 'react'
 import IPinneds from 'types/IPinneds'
 import Repository from 'common/Repository'
 
-import * as CSS from './Pinneds.style'
+import Container from 'common/Container/Container'
+import Views from 'common/Views/Views'
+import Title from 'common/Title/Title'
 
 const Pinneds: React.FC<IPinneds> = ({ repositories }) => {
   return (
-    <CSS.Pinneds id="projects" data-name="projects">
-      <div>
-        <CSS.Title>Projects</CSS.Title>
-        <CSS.List>
+    <Container>
+      <Views direction="column" gap={1}>
+        <Title>Projects</Title>
+        <Views gap={1}>
           {repositories.map((repository) => (
             <Repository key={repository.name} repository={repository} />
           ))}
-        </CSS.List>
-      </div>
-    </CSS.Pinneds>
+        </Views>
+      </Views>
+    </Container>
   )
 }
 

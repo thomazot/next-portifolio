@@ -13,7 +13,7 @@ export default {
 } as Meta<CheckboxProps>
 
 export const Default: Story<CheckboxProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Checkbox {...args} />
     </Views>

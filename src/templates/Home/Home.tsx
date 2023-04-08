@@ -9,11 +9,11 @@ import { SizeType } from 'styles/theme'
 const Home: React.FC = () => {
   return (
     <Container>
-      <Views center>
+      <Views>
         <Views direction="column" gap={1}>
           <Title size={SizeType.LARGE}>Hi, my name is</Title>
           <Title as="h2">Thomaz T. O. Toyama</Title>
-          <Text style={{ maxWidth: '450px' }}>
+          <Text>
             {`I'm a Front-End developer with more than 14 years of
             development as a developer today focused on development with React,
             NextJS. `}

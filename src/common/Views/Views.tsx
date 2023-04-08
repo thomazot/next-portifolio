@@ -56,7 +56,7 @@ const Views = styled.div<ViewsProps>`
 
     ${gap &&
     css`
-      gap: ${typeof gap === 'number' ? (theme.gap / 2) * gap : gap}px;
+      gap: ${typeof gap === 'number' ? `${(theme.gap / 2) * gap}px` : gap};
     `}
   `}
 `

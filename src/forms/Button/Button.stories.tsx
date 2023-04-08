@@ -12,7 +12,7 @@ export default {
 } as Meta<ButtonProps>
 
 export const Default: Story<ButtonProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Button {...args}>Button Primary</Button>
     </Views>
@@ -20,7 +20,7 @@ export const Default: Story<ButtonProps> = (args) => (
 )
 
 export const Loading: Story<ButtonProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Button {...args}>Button Primary</Button>
     </Views>

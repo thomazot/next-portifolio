@@ -1,5 +1,4 @@
-import { useState, useCallback, MouseEvent, FC } from 'react'
-import gsap from 'gsap'
+import { useState, useCallback, MouseEvent, FC, useEffect } from 'react'
 import Link from 'next/link'
 
 import * as S from './Menu.style'
@@ -22,20 +21,24 @@ const Menu: FC<MenuType> = ({ items }) => {
 
   const handleClick = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
-    const anchor = event.currentTarget.hash || 0
     setOpen(false)
-    if (anchor) {
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: anchor
-      })
-    }
   }, [])
+
+  useEffect(() => {
+    if (open) document.body.classList.add('overlay')
+    else document.body.classList.remove('overlay')
+    return () => {
+      document.body.classList.remove('overlay')
+    }
+  }, [open])
 
   return (
     <>
       <S.Button open={open} onClick={handleChangeOpen}>
-        <span>Menu</span>
+        <S.ButtonSpan></S.ButtonSpan>
+        <S.ButtonSpan></S.ButtonSpan>
+        <S.ButtonSpan></S.ButtonSpan>
+        <S.ButtonSpan></S.ButtonSpan>
       </S.Button>
       <S.Content open={open}>
         <S.List>
@@ -48,6 +51,7 @@ const Menu: FC<MenuType> = ({ items }) => {
           ))}
         </S.List>
       </S.Content>
+      <S.Overlay onClick={() => setOpen((oldOpen) => !oldOpen)} show={open} />
     </>
   )
 }

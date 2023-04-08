@@ -9,7 +9,7 @@ const Container = styled.div<ContainerType>`
   ${({ theme, fullscreen, center }) => css`
     margin: 0 auto;
     position: relative;
-    max-width: 100%;
+    width: 100%;
 
     ${fullscreen &&
     css`

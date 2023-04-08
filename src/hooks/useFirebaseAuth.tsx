@@ -27,14 +27,15 @@ export default function useFirebaseAuth() {
   const [error, setError] = useState<ErrorType>()
 
   const authStateChanged = (authState: UserType) => {
+    setLoading(true)
+
     if (!authState) {
       setLoading(false)
       return
     }
 
-    setLoading(true)
-    const formatedUser = formatAuthUser(authState)
-    setAuthUser(formatedUser)
+    const formattedUser = formatAuthUser(authState)
+    setAuthUser(formattedUser)
     setLoading(false)
   }
 
@@ -48,11 +49,20 @@ export default function useFirebaseAuth() {
     password: string
   ) => {
     try {
+      if (authUser) return
       setLoading(true)
       setError(undefined)
-      return await firebase
+      const user = await firebase
         .signInWithEmailAndPassword(email, password)
         .finally(() => setLoading(false))
+
+      if (!user)
+        setError({
+          code: '401',
+          message: 'Invalid email or password'
+        })
+
+      return user
     } catch (error: any) {
       setError({
         code: error.code,
@@ -61,7 +71,16 @@ export default function useFirebaseAuth() {
     }
   }
 
-  const signOut = () => firebase.signOut().then(clear)
+  const signOut = async () => {
+    try {
+      firebase.signOut().then(clear)
+    } catch (error: any) {
+      setError({
+        code: error.code,
+        message: error.message
+      })
+    }
+  }
 
   useEffect(() => {
     const unsubscribe = firebase.onAuthStateChanged(authStateChanged)

@@ -66,36 +66,11 @@ const GlobalStyles = createGlobalStyle`
       transition: background-color 5000s ease-in-out 0s;
     }
 
-    /* a {
-      display: inline-block;
-      text-decoration: none;
-      text-decoration-skip-ink: auto;
-      transition: var(--transition);
-      color: var(--primary);
-      line-height: 1.3;
-
-      &:hover {
-        color: var(--primary);
-        outline: 0px;
-
-        &:after {
-          width: 100%;
-        }
-      }
-
-      &:after {
-        content: '';
-        display: block;
-        width: 0px;
-        height: 1px;
-        position: relative;
-        bottom: 0.37em;
-        background-color: var(--primary);
-        transition: var(--transition);
-        opacity: 0.5;
-        margin-top: 5px;
-      }
-    } */
+    .overlay {
+      max-width: 100%;
+      max-height: 100%;
+      overflow: hidden;
+    }
   `}
 `
 export default GlobalStyles

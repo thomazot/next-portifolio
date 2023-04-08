@@ -3,82 +3,77 @@ import ButtonDefault from '../../forms/Button'
 
 const ModifiedButton = {
   Open: css`
-    top: 0;
-    right: 300px;
-    span {
-      transform: rotate(45deg);
+    ${() => css`
+      span {
+        &:nth-child(1) {
+          top: 12px;
+          width: 0%;
+          left: 50%;
+        }
 
-      &:before,
-      &:after {
-        transform: rotate(90deg);
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(4) {
+          top: 12px;
+          width: 0%;
+          left: 50%;
+        }
       }
-
-      &:before {
-        top: 0;
-      }
-
-      &:after {
-        bottom: 0;
-      }
-    }
-
-    @media (max-width: 358px) {
-      right: calc(100% - 58px);
-    }
+    `}
   `,
   Close: css``
 }
 
+export const ButtonSpan = styled.span`
+  ${({ theme }) => css`
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: ${theme.colors.primary};
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 12px;
+    }
+
+    &:nth-child(4) {
+      top: 25px;
+    }
+  `}
+`
+
 export const Button = styled(ButtonDefault)<{ open: boolean }>`
   ${({ theme, open }) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     left: ${theme.gap / 2}px;
     top: ${theme.gap / 2}px;
     z-index: 100;
-    background: none;
-    border: none;
-    width: 58px;
-    height: 58px;
-    background: none;
-    border-radius: 3px;
-    color: transparent;
-    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    transform: rotate(0deg);
     transition: all 0.3s ease-in-out;
-    font-size: 0;
+    cursor: pointer;
+    background: none;
     padding: 0;
 
-    span {
-      display: block;
-      position: relative;
-      width: 60%;
-
-      &,
-      &:before,
-      &:after {
-        height: 3px;
-        border-radius: 2px;
-        background: ${theme.colors.background};
-        transition: all 0.3s ease-in-out;
-      }
-
-      &:before,
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 100%;
-      }
-
-      &:before {
-        top: 10px;
-      }
-
-      &:after {
-        bottom: 10px;
-      }
+    &:hover {
+      background: none;
     }
 
     ${open && ModifiedButton.Open}
@@ -98,7 +93,7 @@ export const Content = styled.div<{ open: boolean }>`
   ${({ theme, open }) => css`
     position: fixed;
     margin-left: auto;
-    z-index: 3;
+    z-index: 20;
     top: 0;
     right: 0;
     min-height: 100vh;
@@ -106,7 +101,8 @@ export const Content = styled.div<{ open: boolean }>`
     width: 300px;
     max-width: calc(100% - 58px);
     transition: all 0.3s ease-in-out;
-    background: ${theme.colors.background};
+    background: ${theme.colors.backgroundContrast};
+    color: ${theme.colors.textContrast};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
     ${open && ModifiedList.Open}
@@ -140,4 +136,30 @@ export const Link = styled.a`
     background: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background};
   }
+`
+type OverlayType = {
+  show?: boolean
+}
+export const Overlay = styled.div<OverlayType>`
+  ${({ show = false }) => css`
+    background: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    ${show
+      ? css`
+          opacity: 1;
+          visibility: visible;
+        `
+      : css`
+          opacity: 0;
+          visibility: hidden;
+        `}
+  `}
 `

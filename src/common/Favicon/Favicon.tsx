@@ -7,9 +7,9 @@ const Favicon: React.FC<{
   width?: string
   height?: string
   title?: string
-}> = (props) => (
+}> = ({ width = '20px', height = '20px', ...iconProps }) => (
   <Link href="/">
-    <FaviconIcon {...props} />
+    <FaviconIcon width={width} height={height} {...iconProps} />
   </Link>
 )
 

@@ -31,7 +31,7 @@ export const Default: Story = () => {
   }, [])
 
   return (
-    <Container>
+    <Container center fullscreen>
       <Views center>
         <Clock shuffle={shuffle} clock={clock} />
       </Views>

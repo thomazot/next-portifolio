@@ -28,7 +28,7 @@ export default {
 } as Meta
 
 export const Default: Story<TextProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Text {...args}>Text example</Text>
     </Views>
@@ -36,7 +36,7 @@ export const Default: Story<TextProps> = (args) => (
 )
 
 export const Large: Story<TextProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Text {...args}>Text example</Text>
     </Views>
@@ -48,7 +48,7 @@ Large.args = {
 }
 
 export const Medium: Story<TextProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Text {...args}>Text example</Text>
     </Views>
@@ -60,7 +60,7 @@ Medium.args = {
 }
 
 export const Small: Story<TextProps> = (args) => (
-  <Container>
+  <Container center fullscreen>
     <Views center>
       <Text {...args}>Text example</Text>
     </Views>

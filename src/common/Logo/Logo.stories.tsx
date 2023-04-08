@@ -21,17 +21,7 @@ export default {
 } as Meta<LogoProps>
 
 export const Default: Story = (args) => (
-  <Container>
-    <div
-      style={{
-        display: 'flex',
-        height: '100vh',
-        maxHeight: '100%',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <Logo {...args} />
-    </div>
+  <Container center fullscreen>
+    <Logo {...args} />
   </Container>
 )

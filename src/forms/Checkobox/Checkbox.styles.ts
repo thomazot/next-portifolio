@@ -5,6 +5,7 @@ export const Label = styled.label`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     cursor: pointer;
 
@@ -29,7 +30,8 @@ export const Label = styled.label`
       width: 14px;
       height: 14px;
       left: 2px;
-      top: 2px;
+      top: 50%;
+      margin-top: -7px;
       border-radius: 50%;
       background: ${theme.colors.primary};
       transition: all 0.2s ease-in-out;

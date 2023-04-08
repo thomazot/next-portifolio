@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 export const Default: Story = () => (
-  <Container style={{ background: '#333', minHeight: '100%' }}>
+  <Container center fullscreen>
     <Menu items={MenuMock} />
   </Container>
 )

@@ -6,4 +6,8 @@ export default {
   component: Container
 } as Meta
 
-export const Default: Story = () => <Container>Container</Container>
+export const Default: Story = () => (
+  <Container center fullscreen>
+    Container
+  </Container>
+)

@@ -1,9 +1,9 @@
 import React from 'react'
-import Sliders from 'common/Sliders'
-import Header from 'common/Header/Header'
+import Header from 'components/Header/Header'
 import Menu, { MenuItemType } from 'common/Menu'
 
 import * as S from './Layout.style'
+import Views from 'common/Views/Views'
 
 interface LayoutProps {
   children?: React.ReactNode | React.ReactNode[]
@@ -13,13 +13,15 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, header = false, menu }) => {
   return (
-    <S.ContainerLayout>
+    <>
       {header && <Header />}
       <Menu items={menu} />
       <main>
-        {Array.isArray(children) ? <Sliders>{children}</Sliders> : children}
+        <Views direction="column" gap={3}>
+          {children}
+        </Views>
       </main>
-    </S.ContainerLayout>
+    </>
   )
 }
 
