@@ -5,6 +5,7 @@ import FieldText from 'forms/FieldText'
 import Views from 'common/Views'
 import { BiSearch } from 'react-icons/bi'
 import useDebounce from 'hooks/useDebounce'
+
 import * as S from './Search.styles'
 
 type SearchProps = {
