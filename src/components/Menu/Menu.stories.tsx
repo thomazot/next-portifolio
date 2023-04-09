@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import Views from 'common/Views'
 import Menu from '.'
-import { MenuMock } from './Menu.mock'
+import { QueryMenuMock } from './Menu.mock'
 
 export default {
   title: 'Components/Menu',
@@ -10,6 +10,12 @@ export default {
 
 export const Default: Story = () => (
   <Views>
-    <Menu items={MenuMock} />
+    <Menu />
   </Views>
 )
+
+Default.parameters = {
+  apolloClient: {
+    mocks: QueryMenuMock
+  }
+}

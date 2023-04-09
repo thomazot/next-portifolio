@@ -1,3 +1,4 @@
+import { MENU } from 'services/MENU'
 import { MenuItemType } from '.'
 
 export const MenuMock: MenuItemType[] = [
@@ -12,5 +13,18 @@ export const MenuMock: MenuItemType[] = [
   {
     name: 'Socials',
     link: '#socials'
+  }
+]
+
+export const QueryMenuMock = [
+  {
+    request: {
+      query: MENU
+    },
+    result: {
+      data: {
+        items: MenuMock
+      }
+    }
   }
 ]

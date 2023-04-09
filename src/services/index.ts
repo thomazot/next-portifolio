@@ -16,8 +16,8 @@ export type ResolverContext = {
 }
 
 function createIsomorphLink() {
-  const uri = process.env.REACT_APP_DATOCMS_URL
-  const token = process.env.REACT_APP_DATOCMS_TOKEN
+  const uri = process.env.NEXT_PUBLIC_DATOCMS_URL
+  const token = process.env.NEXT_PUBLIC_DATOCMS_TOKEN
 
   const authLink = setContext((_, { headers }) => {
     return {

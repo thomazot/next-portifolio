@@ -5,5 +5,5 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
-  moduleDirectories: ['node_modules', 'src']
+  moduleDirectories: ['node_modules', 'src'],
 }

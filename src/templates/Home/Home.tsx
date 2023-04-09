@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             development as a developer today focused on development with React,
             NextJS. `}
           </Text>
-          <Button secondary inline>
+          <Button themeType="secondary" inline>
             Contact me.
           </Button>
         </Views>

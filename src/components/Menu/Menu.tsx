@@ -1,24 +1,27 @@
-import { useState, useCallback, MouseEvent, FC, useEffect } from 'react'
+import { useState, useCallback, MouseEvent, useEffect } from 'react'
 import Link from 'next/link'
 
 import * as S from './Menu.style'
 import Search from 'components/Search/Search'
 import Views from 'common/Views/Views'
+import { useQuery } from '@apollo/client'
+import { MENU } from 'services/MENU'
 
 export type MenuItemType = {
   name: string
   link: string
-  children?: MenuItemType[]
+  childrens?: MenuItemType[]
 }
 
-export type MenuType = {
+export type MenuQueryType = {
   items: MenuItemType[]
 }
 
-const Menu: FC<MenuType> = ({ items }) => {
-  const [menu, setMemu] = useState<MenuItemType[]>(items)
+const Menu = () => {
+  const [menu, setMenu] = useState<MenuItemType[]>([])
   const [open, setOpen] = useState(false)
-  const [loading, setLoading] = useState(false)
+
+  const { data, loading } = useQuery<MenuQueryType>(MENU)
 
   const handleChangeOpen = useCallback(() => {
     setOpen((oldOpen) => !oldOpen)
@@ -31,19 +34,18 @@ const Menu: FC<MenuType> = ({ items }) => {
 
   const handleSearch = useCallback(
     (term: string) => {
-      setLoading(true)
-      const itemSearch = term.trim().length
-        ? items.filter(
-            (item) =>
-              item.name.toLocaleLowerCase().indexOf(term.toLocaleLowerCase()) >
-              -1
-          )
-        : items
-
-      setMemu(itemSearch)
-      setLoading(false)
+      const itemSearch =
+        term.trim().length && data?.items
+          ? data.items.filter(
+              (item) =>
+                item.name
+                  .toLocaleLowerCase()
+                  .indexOf(term.toLocaleLowerCase()) > -1
+            )
+          : data?.items || []
+      setMenu(itemSearch)
     },
-    [items]
+    [data]
   )
 
   useEffect(() => {

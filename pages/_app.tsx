@@ -12,7 +12,9 @@ import ErrorBoundary from 'templates/ErrorBoundary'
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState)
   const router = useRouter()
+
   const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL
+
   const dataLayer: IDataLayer = useMemo(
     () => ({
       pageTypeName: pageProps?.initialDataLayer?.pageTypeName || '',
